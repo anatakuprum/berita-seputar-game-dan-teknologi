@@ -1,0 +1,7 @@
+git init # pastikan lokasi sudah benar
+git add . # menambahkan semua berkas kedalam git
+git commit -m "update" # memberi tanda perubahan 
+git branch -M master https://github.com/AdityaPranata1702/posting-list.git
+git remote add origin 
+git push # untuk push project ke git online
+
