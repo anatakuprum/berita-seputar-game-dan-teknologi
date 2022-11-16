@@ -1,0 +1,51 @@
+{% extends 'back/page-back.html' %}
+{% block content %}
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">Data Posts</h5>
+          <p class="text-sm mb-1">Universitas Muhammdiyah Kalimantan Timur</p>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center mb-0">
+            <thead>
+              <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Judul</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Category</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                <th class="text-secondary opacity-7"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for a in posting %}
+                <tr>
+                  <td><center>{{ forloop.counter }} </center></td>
+                  <td>{{ a.nama }}</td>
+                  <td>{{ a.judul }}</td>
+                  <td>{{ a.category }}</td>
+                  <td>{{ a.date }}</td>
+                  <td class="align-middle">
+                    <a href="javascript:;"
+                      class="text-secondary font-weight-normal text-xs"
+                      data-toggle="tooltip"
+                      data-original-title="Edit user">
+                      Edit
+                    </a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="d-flex justify-content-end mt-4 mb-2">
+        <a href="{% url 'plus' %}" class="btn bg-gradient-dark btn-sm opacity-7" role="button" aria-pressed="true">Tambah Posts</a> 
+        &emsp;&emsp;
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'back/page-back.html' %}
+{% block content %}
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header pb-0">
+          <div class="d-lg-flex">
+            <div>
+              <h5 class="mb-0">Posts List</h5>
+              <p class="text-sm mb-0">
+                Universitas Muhammdiyah Kalimantan Timur
+              </p>
+            </div>
+            <div class="ms-auto my-auto mt-lg-0 mt-4">
+              <div class="ms-auto my-auto">
+                <a href="{% url 'plus' %}" class="btn bg-gradient-dark btn-sm mb-0">+&nbsp; Tambah Posts</a>
+                <button class="btn btn-outline-dark btn-sm export mb-0 mt-sm-0 mt-1" data-type="csv" type="button" name="button">Export</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-0">
+          <div class="table-responsive">
+            <table class="table table-flush" id="products-list">
+              <thead class="thead-light">
+                <tr>
+                  <th>No</th>
+                  <th>Nama</th>
+                  <th>Judul</th>
+                  <th>Category</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for p in posting %}
+                <tr>
+                  <td class="text-sm">{{ forloop.counter }}</td>
+                  <td class="text-sm">{{ p.nama }}</td>
+                  <td class="text-sm">{{ p.judul }}</td>
+                  <td class="text-sm">{{ p.category }}</td>
+                  <td>
+                    <span class="badge badge-success badge-sm">{{ p.date }}</span>
+                  </td>
+                  <td class="text-sm">
+                    <a href="{% url 'visited' p.id %}" data-bs-toggle="tooltip" data-bs-original-title="Preview product">
+                      <i class="material-icons text-secondary position-relative text-lg">visibility</i>
+                    </a>
+                    <a href="{% url 'edit' p.id %}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit product">
+                      <i class="material-icons text-secondary position-relative text-lg">drive_file_rename_outline</i>
+                    </a>
+                    <a href="{% url 'delete' p.id %}" onclick="alert('Yakin Ingin Menghapus?')" data-bs-toggle="tooltip" data-bs-original-title="Delete product">
+                      <i class="material-icons text-secondary position-relative text-lg">delete</i>
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Nama</th>
+                  <th>Judul</th>
+                  <th>Category</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
