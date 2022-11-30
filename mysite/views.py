@@ -26,16 +26,16 @@ def about(request):
     }
     return render(request, template_name, context)
 
-def about(request):
+def signin(request):
     template_name = 'account/signin.html'
     context = {
-        'title' : 'Halaman About'
+        'title' : 'Halaman Sign In'
     }
     return render(request, template_name, context)
 
-def about(request):
+def signup(request):
     template_name = 'account/signup.html'
     context = {
-        'title' : 'Halaman About'
+        'title' : 'Halaman Sign Up'
     }
     return render(request, template_name, context)
