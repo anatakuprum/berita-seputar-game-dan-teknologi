@@ -25,3 +25,17 @@ def about(request):
         'title' : 'Halaman About'
     }
     return render(request, template_name, context)
+
+def about(request):
+    template_name = 'account/signin.html'
+    context = {
+        'title' : 'Halaman About'
+    }
+    return render(request, template_name, context)
+
+def about(request):
+    template_name = 'account/signup.html'
+    context = {
+        'title' : 'Halaman About'
+    }
+    return render(request, template_name, context)

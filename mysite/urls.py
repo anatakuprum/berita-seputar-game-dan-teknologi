@@ -9,4 +9,7 @@ urlpatterns = [
     path('about/', about, name='about'),
     #Dashboard
     path('dashboard/', include('post.urls')),
+    #Account
+    path('blog/', sign, name='sigin'),
+    path('about/', about, name='about'),
 ]
