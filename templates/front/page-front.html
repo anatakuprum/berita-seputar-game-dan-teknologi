@@ -23,118 +23,64 @@
 </head>
 
 <body class="blog-categories bg-gray-200">
-  <!-- Navbar Transparent -->
-  <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
-    <div class="container">
-      <a class="navbar-brand  text-white  d-none d-md-block" href="{% url 'home' %}" rel="tooltip"  data-placement="bottom">
-        OREONZUU
-      </a>
-      <a href="https://www.creative-tim.com/product/material-design-system-pro#pricingCard" class="btn btn-sm  bg-white  mb-0 ms-auto d-lg-none d-block">Buy Now</a>
-      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon mt-2">
-          <span class="navbar-toggler-bar bar1"></span>
-          <span class="navbar-toggler-bar bar2"></span>
-          <span class="navbar-toggler-bar bar3"></span>
-        </span>
-      </button>
-      <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
-        <ul class="navbar-nav navbar-nav-hover ms-auto">
-          <li class="nav-item dropdown dropdown-hover mx-2">
-            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" role="button" id="dropdownMenuAccount" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
-              Home
-              <img src="{% static 'front/img/down-arrow-white.svg' %}" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="{% static 'front/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow d-lg-none d-block ms-auto">
-            </a>
-            <div class="dropdown-menu dropdown-menu-animation dropdown-md border-radius-xl p-3 mt-0 mt-lg-3" aria-labelledby="dropdownMenuAccount">
-              <div class="d-none d-lg-flex">
-                <ul class="list-group w-100">
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a href="../../pages/coming-soon.html" class="dropdown-item border-radius-md text-dark ps-3 d-flex align-items-center mb-1">
-                      <span>Home</span>
-                    </a>
-                  </li>
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a href="{% url 'blog' %}" class="dropdown-item border-radius-md text-dark ps-3 d-flex align-items-center mb-1">
-                      <span>Posting</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown dropdown-hover mx-2">
-            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" role="button" id="dropdownMenuAccount" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md">contacts</i>
-              Account
-              <img src="{% static 'front/img/down-arrow-white.svg' %}" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="{% static 'front/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow d-lg-none d-block ms-auto">
-            </a>
-            <div class="dropdown-menu dropdown-menu-animation dropdown-md border-radius-xl p-3 mt-0 mt-lg-3" aria-labelledby="dropdownMenuAccount">
-              <div class="d-none d-lg-flex">
-                <ul class="list-group w-100">
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a href="../../pages/coming-soon.html" class="dropdown-item border-radius-md text-dark ps-3 d-flex align-items-center mb-1">
-                      <span>Coming Soon</span>
-                    </a>
-                  </li>
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a href="../../pages/2fa-security.html" class="dropdown-item border-radius-md text-dark ps-3 d-flex align-items-center mb-1">
-                      <span>2FA Security</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown dropdown-hover mx-2">
-            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" role="button" id="dropdownMenuAccount" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md">view_day</i>
-              About
-              <img src="{% static 'front/img/down-arrow-white.svg' %}" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="{% static 'front/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow d-lg-none d-block ms-auto">
-            </a>
-            <div class="dropdown-menu dropdown-menu-animation dropdown-md border-radius-xl p-3 mt-0 mt-lg-3" aria-labelledby="dropdownMenuAccount">
-              <div class="d-none d-lg-flex">
-                <ul class="list-group w-100">
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a href="../../pages/coming-soon.html" class="dropdown-item border-radius-md text-dark ps-3 d-flex align-items-center mb-1">
-                      <span>Coming Soon</span>
-                    </a>
-                  </li>
-                  <li class="nav-item list-group-item border-0 p-0">
-                    <a href="../../pages/2fa-security.html" class="dropdown-item border-radius-md text-dark ps-3 d-flex align-items-center mb-1">
-                      <span>2FA Security</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <ul class="navbar-nav d-lg-block d-none">
-          <li class="nav-item">
-            <a href="https://www.creative-tim.com/product/material-design-system-pro#pricingCard" class="btn btn-sm  bg-white  mb-0 me-1">Login</a>
-          </li>
-        </ul>
+<!-- Navbar Transparent -->
+<!-- START HEADER 2 w/ waves and typed text -->
+  <header class="position-relative">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-absolute bg-transparent shadow-none">
+      <div class="container">
+        <a class="navbar-brand text-white" href="{% url 'home' %}">Oreonzuu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header-2" aria-controls="navbar-header-2" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-header-2">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'home' %}">
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'blog' %}">
+                Blog
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'about' %}">
+                About
+              </a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav d-lg-block d-none">
+            <li class="nav-item">
+              <a href="#" class="btn btn-sm  bg-white  mb-0 me-1">Login</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-  <!-- End Navbar -->
-  <!-- START HEADER 4 w/ search book a ticket form -->
-  <header>
-    <div class="page-header min-vh-50" style="background-image: url('https://images.unsplash.com/photo-1491156855053-9cdff72c7f85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2200&q=80')" loading="lazy">
-      <span class="mask bg-gradient-dark"></span>
+    </nav>
+    <div class="page-header min-vh-100" style="background-image: url({% static 'front/img/bg9.jpg' %});" loading="lazy">
+      <span class="mask bg-gradient-dark opacity-4"></span>
       <div class="container">
         <div class="row">
-          {% comment %} <div class="col-lg-8 mx-auto text-white text-center">
-            <h2 class="text-white">OREONZUU</h2>
-            <p class="lead">Website Berita Seputar Game Dan Teknologi</p>
-          </div> {% endcomment %}
+          <div class="col-lg-8 text-center mx-auto">
+            <h1 class="text-white">Oreonzuu Adalah Web Berita Seputar <span class="text-white" id="typed"></span></h1>
+              <div id="typed-strings">
+                <h1>Game</h1>
+                <h1>Teknologi</h1>
+                <h1>Console</h1>
+              </div>
+            <p class="lead text-white text-center pe-5 mt-4">Oreonzuu adalah situs game, teknologi, hiburan, dan gadget. Kami memberi Anda berita dan video terbaru langsung dari pembuat konten kami.</p>
+            <br />
+            <div class="buttons text-center">
+              <button type="button" class="btn btn-white">Berita</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </header>
+  <!-- END HEADER 2 w/ waves and typed text -->
   <!-- END HEADER 4 w/ search book a ticket form -->
   {% block content %} 
   {% load static %} 
@@ -197,6 +143,8 @@
   <!--  Plugin for TypedJS, full documentation here: https://github.com/mattboldt/typed.js/ -->
   <script src="{% static 'front/js/plugins/typedjs.js' %}"></script>
   <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+  <script src="{% static 'front/js/plugins/countup.min.js' %}"></script>
+  <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
   <script src="{% static 'front/js/plugins/parallax.min.js' %}"></script>
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
   <script src="{% static 'front/js/plugins/nouislider.min.js' %}" type="text/javascript"></script>
@@ -206,6 +154,19 @@
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="{% static 'front/js/material-kit-pro.min.js' %}?v=3.0.0" type="text/javascript"></script>
+  <!-- Mandatory init script -->
+  <script>
+    if (document.getElementById("typed")) {
+      var typed = new Typed("#typed", {
+        stringsElement: "#typed-strings",
+        typeSpeed: 70,
+        backSpeed: 50,
+        backDelay: 200,
+        startDelay: 500,
+        loop: true
+      });
+    }
+  </script>
 </body>
 
 </html>
