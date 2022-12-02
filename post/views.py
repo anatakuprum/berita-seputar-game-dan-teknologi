@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import *
 
 # Create your views here.
+@login_required
 def dashboard(request):
     template_name = 'back/dashboard.html'
     context = {
@@ -9,6 +11,7 @@ def dashboard(request):
     }
     return render(request, template_name, context)
 
+@login_required
 def posts(request):
     template_name = 'back/posts.html'
     posting = Posting.objects.all()
@@ -18,6 +21,7 @@ def posts(request):
     }
     return render(request, template_name, context)
 
+@login_required
 def users(request):
     template_name = 'back/users.html'
     context = {
@@ -34,6 +38,7 @@ def visited(request, id):
     }
     return render(request, template_name, context)
 
+@login_required
 def plus(request):
     template_name = 'back/plus.html'
     category = Category.objects.all()
@@ -63,6 +68,7 @@ def plus(request):
     }
     return render(request, template_name, context)
 
+@login_required
 def edit(request, id):
     template_name = 'back/plus.html'
     category = Category.objects.all()
@@ -94,6 +100,7 @@ def edit(request, id):
     }
     return render(request, template_name, context)
 
+@login_required
 def delete(request, id):
     Posting.objects.get(id=id).delete()
     return redirect(posts)

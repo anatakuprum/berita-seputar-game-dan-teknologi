@@ -10,6 +10,6 @@ urlpatterns = [
     #Dashboard
     path('dashboard/', include('post.urls')),
     #Account
-    path('signin/', signin, name='signin'),
-    path('signup/', signup, name='signup'),
+    path('login/', login, name='login'),
+    path('logout/', logout_view, name='logout'),
 ]

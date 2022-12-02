@@ -1,4 +1,4 @@
-{% extends 'account/page-account.html' %}
+{% extends 'front/page-front.html' %}
 {% block content %}
 <div class="container mb-4">
     <div class="row mt-lg-n12 mt-md-n12 mt-n12 justify-content-center">
@@ -11,21 +11,22 @@
             </div>
           </div>
           <div class="card-body">
-            <form role="form" class="text-start">
+            <form role="form" class="text-start" method="POST">
+              {% csrf_token %}
               <div class="input-group input-group-static mb-4">
-                <label>Email</label>
-                <input type="email" class="form-control">
+                <label>Username</label>
+                <input name='username' type="text" class="form-control" placeholder="Username">
               </div>
               <div class="input-group input-group-static mb-4">
                 <label>Password</label>
-                <input type="password" class="form-control">
+                <input  name='password' type="password" class="form-control" placeholder="Password">
               </div>
-              <div class="form-check form-switch d-flex align-items-center mb-3">
+              {% comment %} <div class="form-check form-switch d-flex align-items-center mb-3">
                 <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
                 <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
-              </div>
+              </div> {% endcomment %}
               <div class="text-center">
-                <button type="button" class="btn bg-gradient-dark w-100 mt-3 mb-0">Sign in</button>
+                <button type="submit" class="btn bg-gradient-dark w-100 mt-3 mb-0">Sign in</button>
               </div>
             </form>
           </div>

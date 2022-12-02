@@ -1,6 +1,7 @@
-from multiprocessing import context
-from re import template
-from django.shortcuts import render
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout
+from django.shortcuts import render, redirect
 from post.models import *
 
 def home(request):
@@ -28,16 +29,28 @@ def about(request):
     }
     return render(request, template_name, context)
 
-def signin(request):
-    template_name = 'account/signin.html'
+def login(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    template_name = 'account/login.html'
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        print(username, password)
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            print("Account Yang Kamu Masukan Benar")
+            auth_login(request, user)
+            return redirect('home')
+        else:
+            print("Account Yang Kamu Masukan Salah")
+        
     context = {
         'title' : 'Halaman Sign In'
     }
     return render(request, template_name, context)
 
-def signup(request):
-    template_name = 'account/signup.html'
-    context = {
-        'title' : 'Halaman Sign Up'
-    }
-    return render(request, template_name, context)
+def logout_view(request):
+    logout(request)
+    return redirect('home')
