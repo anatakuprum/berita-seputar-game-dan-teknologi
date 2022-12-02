@@ -14,8 +14,10 @@ def home(request):
 
 def blog(request):
     template_name = 'front/blog.html'
+    posting = Posting.objects.all()
     context = {
-        'title' : 'Halaman Blog'
+        'title' : 'Halaman Blog',
+        'posting' : posting,
     }
     return render(request, template_name, context)
 
