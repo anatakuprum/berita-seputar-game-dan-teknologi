@@ -1,10 +1,19 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.models import User, Group
 from .models import *
 
 # Create your views here.
+def is_admin(user):
+    if user.groups.filter(name='Admin').exists():
+        return True
+    else:
+        return False
+
 @login_required
 def dashboard(request):
+    if request.user.groups.filter(name='Admin').exists():
+        request.session['is_admin'] = 'admin'
     template_name = 'back/dashboard.html'
     context = {
         'title' : 'Dashboard',
@@ -22,10 +31,15 @@ def posts(request):
     return render(request, template_name, context)
 
 @login_required
+@user_passes_test(is_admin)
 def users(request):
     template_name = 'back/users.html'
+    users = User.objects.all()
+    groups = Group.objects.all()
     context = {
-        'title' : 'List Users'
+        'title' : 'List Users',
+        'users' : users,
+        'groups' : groups,
     }
     return render(request, template_name, context)
 

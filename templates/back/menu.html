@@ -45,11 +45,13 @@
         <span class="nav-link-text ms-2 ps-1">Posts</span>
       </a>
     </li>
+    {% if request.session.is_admin == 'admin' %}
     <li class="nav-item">
       <a class="nav-link text-whit" href="{% url 'users' %}">
         <i class="material-icons-round {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">content_paste</i>
         <span class="nav-link-text ms-2 ps-1">Users</span>
       </a>
     </li>
+    {% endif %}
   </ul>
 </div>
