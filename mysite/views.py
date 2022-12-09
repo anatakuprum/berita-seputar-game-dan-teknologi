@@ -51,6 +51,13 @@ def login(request):
     }
     return render(request, template_name, context)
 
+def register(request):
+    template_name = 'account/register.html'
+    context = {
+        'title' : 'Halaman Register'
+    }
+    return render(request, template_name, context)
+
 def logout_view(request):
     logout(request)
     return redirect('home')
