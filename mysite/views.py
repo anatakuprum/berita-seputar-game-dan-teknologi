@@ -1,8 +1,12 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import User
+from django.db import transaction
 from django.shortcuts import render, redirect
 from post.models import *
+from user.models import *
 
 def home(request):
     template_name = 'front/home.html'
@@ -15,7 +19,7 @@ def home(request):
 
 def blog(request):
     template_name = 'front/blog.html'
-    posting = Posting.objects.all()
+    posting = Posting.objects.filter(nama = request.user)
     context = {
         'title' : 'Halaman Blog',
         'posting' : posting,
@@ -54,15 +58,31 @@ def login(request):
 def register(request):
     template_name = 'account/register.html'
     if request.method == "POST":
-        username =request.POST.get('username')
-        password =request.POST.get('password')
-        first_name =request.POST.get('first_name')
-        last_name =request.POST.get('last_name')
-        email =request.POST.get('email')
-        alamat =request.POST.get('alamat')
-        telp =request.POST.get('telp')
-        
-        print(username, password, first_name, last_name, email, alamat, telp)
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        alamat = request.POST.get('alamat')
+        telp = request.POST.get('telp')
+        try:
+            with transaction.atomic():
+                User.objects.create(
+                    username = username,
+                    password = make_password(password),
+                    first_name = first_name,
+                    last_name = last_name,
+                    email = email,
+                )
+                get_user = User.objects.get(username = username)
+                Biodata.objects.create(
+                    user = get_user,
+                    alamat = alamat,
+                    telp = telp,
+                )
+            return redirect('login')
+        except:
+            pass
     context = {
         'title' : 'Halaman Register'
     }

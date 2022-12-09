@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -11,7 +12,7 @@ class Category(models.Model):
         verbose_name_plural = "Category"
 
 class Posting(models.Model):
-    nama = models.CharField(max_length=100)
+    nama = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     judul = models.CharField(max_length=100)
     body = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
