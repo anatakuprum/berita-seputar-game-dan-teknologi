@@ -13,7 +13,8 @@
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder">No</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Name</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Email Addres</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Email</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">First Name</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Last Name</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Staff Status</th>
                 <th class="text-secondary"></th>
               </tr>
@@ -24,7 +25,8 @@
                   <td><center>{{ forloop.counter }} </center></td>
                   <td>{{ u.username }}</td>
                   <td>{{ u.email }}</td>
-                  <td>{{ u.groups }}</td>
+                  <td>{{ u.first_name }}</td>
+                  <td>{{ u.last_name }}</td>
                   <td>
                     <span class="badge badge-success badge-sm">{{ u.is_staff }}</span>
                   </td>
