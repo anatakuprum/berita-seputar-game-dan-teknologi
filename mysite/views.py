@@ -53,6 +53,16 @@ def login(request):
 
 def register(request):
     template_name = 'account/register.html'
+    if request.method == "POST":
+        username =request.POST.get('username')
+        password =request.POST.get('password')
+        first_name =request.POST.get('first_name')
+        last_name =request.POST.get('last_name')
+        email =request.POST.get('email')
+        alamat =request.POST.get('alamat')
+        telp =request.POST.get('telp')
+        
+        print(username, password, first_name, last_name, email, alamat, telp)
     context = {
         'title' : 'Halaman Register'
     }
