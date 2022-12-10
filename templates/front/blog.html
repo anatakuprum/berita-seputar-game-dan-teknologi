@@ -21,7 +21,7 @@
               <div class="col-lg-6 justify-content-center d-flex flex-column">
                 <div class="card">
                   <div class="d-block blur-shadow-image">
-                    <img src="&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="img-blur-shadow-blog-2" class="img-fluid border-radius-xl" loading="lazy">
+                    <img src="https://awsimages.detik.net.id/community/media/visual/2019/08/02/1bcc96d4-af26-4f09-ab0a-249d10648314_169.jpeg?w=700&q=90&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="img-blur-shadow-blog-2" class="img-fluid border-radius-xl" loading="lazy">
                   </div>
                 </div>
               </div>
@@ -31,7 +31,7 @@
                   <a href="javascript:;" class="text-dark">{{ p.judul }}</a>
                 </h3>
                 <p class="card-description">
-                  {{ p.body }}… <a href="javascript:;" class="text-darker icon-move-right text-sm">Read More
+                  {{ p.body|safe|truncatechars:300 }}… <a href="javascript:;" class="text-darker icon-move-right text-sm">Read More
                     <i class="fas fa-arrow-right text-xs ms-1"></i>
                   </a>
                 </p>
