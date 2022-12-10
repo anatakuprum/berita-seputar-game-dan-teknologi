@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 class Category(models.Model):
@@ -14,7 +16,15 @@ class Category(models.Model):
 class Posting(models.Model):
     nama = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     judul = models.CharField(max_length=100)
-    body = models.TextField()
+    body = RichTextUploadingField(
+        blank=True, null=True,
+        config_name='special',
+        external_plugin_resources=[(
+            'youtube',
+            '/static/ckeditor_plugins/youtube/youtube/',
+            'plugin.js',
+        )],
+    )
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     date = models.DateTimeField(auto_now_add=True)
     

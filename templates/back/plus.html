@@ -1,4 +1,6 @@
-{% extends 'back/page-back.html' %} {% block content %}
+{% extends 'back/page-back.html' %} 
+{% load static %}
+{% block content %}
 <div class="container-fluid py-4">
   <div class="row mt-4">
     <div class="col-lg-9 col-12 mx-auto position-relative">
@@ -74,3 +76,10 @@
   </div>
 </div>
 {% endblock %}
+
+{% block js %}
+
+<script type="text/javascript" src="{% static 'ckeditor\ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor\ckeditor\ckeditor.js' %}"></script>
+
+{% endblock js %}
