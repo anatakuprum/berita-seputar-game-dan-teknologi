@@ -45,20 +45,6 @@
               {% endfor %}
             </select> {% endcomment %}
           </div>
-          {% comment %} <div class="row">
-            <label class="mt-4">Date</label>
-            <div class="col-4">
-              <div class="input-group input-group-static">
-                <input
-                  name="date"
-                  class="form-control datetimepicker"
-                  type="text"
-                  data-input
-                  value="{{ get_posts.date }}"
-                />
-              </div>
-            </div>
-          </div> {% endcomment %}
           <div class="d-flex justify-content-end mt-4">
             <a href="{% url 'posts' %}" type="button" name="button" class="btn btn-light m-0">
               Cancel
@@ -76,10 +62,3 @@
   </div>
 </div>
 {% endblock %}
-
-{% block js %}
-
-<script type="text/javascript" src="{% static 'ckeditor\ckeditor-init.js' %}"></script>
-<script type="text/javascript" src="{% static 'ckeditor\ckeditor\ckeditor.js' %}"></script>
-
-{% endblock js %}
