@@ -80,7 +80,7 @@ def register(request):
                     alamat = alamat,
                     telp = telp,
                 )
-            return redirect('login')
+            return redirect('home')
         except:
             pass
     context = {
