@@ -12,7 +12,7 @@ def home(request):
     template_name = 'front/home.html'
     posting = Posting.objects.all()
     context = {
-        'title' : 'Halaman Home',
+        'title' : 'HOME',
         'posting' : posting,
     }
     return render(request, template_name, context)
@@ -21,7 +21,7 @@ def blog(request):
     template_name = 'front/blog.html'
     posting = Posting.objects.filter(nama = request.user)
     context = {
-        'title' : 'Halaman Blog',
+        'title' : 'BLOG',
         'posting' : posting,
     }
     return render(request, template_name, context)
@@ -29,16 +29,18 @@ def blog(request):
 def about(request):
     template_name = 'front/about.html'
     context = {
-        'title' : 'Halaman About'
+        'title' : 'ABOUT'
     }
     return render(request, template_name, context)
 
 def detail(request, id):
     template_name = 'front/detail.html'
     posting = Posting.objects.get(id=id)
+    list_posting = Posting.objects.filter(nama = request.user)
     context = {
-        'title' : 'Read More',
+        'title' : 'DETAIL',
         'posting' : posting,
+        'list_posting' : list_posting,
     }
     return render(request, template_name, context)
 
@@ -60,7 +62,7 @@ def login(request):
             print("Account Yang Kamu Masukan Salah")
         
     context = {
-        'title' : 'Halaman Sign In'
+        'title' : 'LOGIN'
     }
     return render(request, template_name, context)
 
@@ -93,7 +95,7 @@ def register(request):
         except:
             pass
     context = {
-        'title' : 'Halaman Register'
+        'title' : 'REGISTER'
     }
     return render(request, template_name, context)
 

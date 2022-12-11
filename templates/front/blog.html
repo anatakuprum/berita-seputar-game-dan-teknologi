@@ -17,27 +17,23 @@
         <div class="col-lg-12">
           <div class="container">
             {% for p in posting %}
-            <div class="row mt-5">
-              <div class="col-lg-6 justify-content-center d-flex flex-column">
-                <div class="card">
-                  <div class="d-block blur-shadow-image">
-                    <img src="{{ p.body.url }}">
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 justify-content-center d-flex flex-column pl-lg-5 pt-lg-0 pt-3">
-                <h6 class="category text-warning mt-3">{{ p.category }}</h6>
-                <h3 class="card-title">
-                  <a href="javascript:;" class="text-dark">{{ p.judul }}</a>
-                </h3>
-                <p class="card-description">
-                  {{ p.body|safe|truncatechars:300 }} <a href="{% url 'detail' p.id  %}" class="text-darker icon-move-right text-sm">Read More
-                    <i class="fas fa-arrow-right text-xs ms-1"></i>
+            <div class="col-lg-8 mx-auto text-center">
+              <div class="card card-blog card-plain">
+                <div class="card-body px-0 pt-4">
+                  <p class="text-gradient text-primary text-gradient font-weight-bold text-sm text-uppercase">{{ p.category }}</p>
+                  <a href="javascript:;">
+                    <h4>
+                      {{ p.judul }}
+                    </h4>
                   </a>
-                </p>
-                <p class="author">
-                  by <a href="javascript:;" class="ms-1"><span class="font-weight-bold text-warning"> {{ p.nama }}</span></a>, {{ p.date }}
-                </p>
+                  <p>
+                    {{ p.body|safe|truncatechars:300 }} <a href="{% url 'detail' p.id  %}" class="text-darker icon-move-right text-sm">Read More
+                    <i class="fas fa-arrow-right text-xs ms-1"></i>
+                  </p>
+                  <p class="author">
+                  <a href="javascript:;" class="ms-1"><span class="font-weight-bold text-warning"> {{ p.nama }}</span></a>, {{ p.date }}
+                  </p>
+                </div>
               </div>
             </div>
             {% endfor %}
@@ -73,5 +69,4 @@
       </div>
     </div>
   </div>
-
 {% endblock %}

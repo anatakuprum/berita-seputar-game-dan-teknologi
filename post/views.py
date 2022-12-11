@@ -88,7 +88,7 @@ def edit(request, id):
     else:
         plus = PostingForms(instance=get_posts)
     context = {
-        'title' : 'edit Posting',
+        'title' : 'Edit Posting',
         'category' : category,
         'get_posts' : get_posts,
         'plus': plus,

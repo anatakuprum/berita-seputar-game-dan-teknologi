@@ -1,5 +1,6 @@
 {% extends 'front/page-front.html' %}
 {% block content %}
+{% load static %}
 <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
     <!-- START Blogs w/ 3 images & quote & text -->
     <section class="py-5 mt-5">
@@ -26,87 +27,35 @@
             <h3 class="mb-1">See other articles</h3>
             <p class="mb-6 px-md-6">Create a unique and beautiful blog posts. You can also connect your blog directly to Google Analytics to have a more detailed look.</p>
           </div>
+          {% for p in list_posting %}
           <div class="col-lg-4 mb-lg-0 mb-4">
             <div class="card">
-              <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
+              {% comment %} <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
                 <a href="javascript:;" class="d-block blur-shadow-image">
-                  <img src="../../assets/img/examples/color2.jpg" class="img-fluid border-radius-md" alt="anastasia" loading="lazy">
+                  <img src="{% static 'front/img/examples/color2.jpg' %}" class="img-fluid border-radius-md" alt="anastasia" loading="lazy">
                 </a>
-              </div>
+              </div> {% endcomment %}
               <div class="card-body">
-                <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">House</span>
-                <a href="javascript:;" class="card-title mt-3 h5 d-block text-darker">
-                  Shared Coworking
+                <span class="text-gradient text-dark text-uppercase text-xs font-weight-bold">{{ p.category }}</span>
+                <a href="{% url 'detail' p.id  %}" class="card-title mt-3 h5 d-block text-darker">
+                    {{ p.judul }}
                 </a>
                 <p class="card-description mb-4">
-                  Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
+                    {{ p.body|safe|truncatechars:200 }}
                 </p>
                 <div class="author align-items-center">
-                  <img src="../../assets/img/team-2.jpg" alt="..." class="avatar shadow" loading="lazy">
+                  <img src="{% static 'front/img/team-2.jpg' %}" alt="..." class="avatar shadow" loading="lazy">
                   <div class="name ps-2">
-                    <span>Mathew Glock</span>
+                    <span>{{ p.nama }}</span>
                     <div class="stats">
-                      <small>Posted on 28 February</small>
+                      <small>{{ p.date }}</small>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 mb-lg-0 mb-4">
-            <div class="card">
-              <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
-                <a href="javascript:;" class="d-block blur-shadow-image">
-                  <img src="../../assets/img/examples/color3.jpg" class="img-fluid border-radius-md" alt="nastuh" loading="lazy">
-                </a>
-              </div>
-              <div class="card-body">
-                <span class="text-gradient text-info text-uppercase text-xs font-weight-bold">House</span>
-                <a href="javascript:;" class="text-darker card-title mt-3 h5 d-block">
-                  Really Housekeeping
-                </a>
-                <p class="card-description mb-4">
-                  Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
-                </p>
-                <div class="author align-items-center">
-                  <img src="../../assets/img/ivana-squares.jpg" alt="ivana" class="avatar shadow" loading="lazy">
-                  <div class="name ps-2">
-                    <span>Mathew Glock</span>
-                    <div class="stats">
-                      <small>Posted on 28 February</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-lg-0 mb-4">
-            <div class="card">
-              <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
-                <a href="javascript:;" class="d-block blur-shadow-image">
-                  <img src="../../assets/img/examples/color1.jpg" class="img-fluid border-radius-md" alt="annie" loading="lazy">
-                </a>
-              </div>
-              <div class="card-body">
-                <span class="text-gradient text-warning text-uppercase text-xs font-weight-bold">House</span>
-                <a href="javascript:;" class="text-darker card-title mt-3 h5 d-block">
-                  Shared Coworking
-                </a>
-                <p class="card-description mb-4">
-                  Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
-                </p>
-                <div class="author align-items-center">
-                  <img src="../../assets/img/marie.jpg" alt="marie" class="avatar shadow" loading="lazy">
-                  <div class="name ps-2">
-                    <span>Mathew Glock</span>
-                    <div class="stats">
-                      <small>Posted on 28 February</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </section>
