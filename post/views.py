@@ -100,23 +100,20 @@ def edit(request, id):
     return render(request, template_name, context)
 
 @login_required
-def delete(request, id):
+def delete(id):
     Posting.objects.get(id=id).delete()
     return redirect(posts)
 
 @login_required
-def account(request, id):
+def account(request):
     template_name = 'back/account.html'
-    user = User.objects.get(id=id)
-    biodata = Biodata.objects.get(id=id)
     context = {
         'title' : 'ACCOUNT',
-        'user' : user,
-        'biodata' : biodata,
     }
     return render(request, template_name, context)
 
-def profile(request, id):
+#Progress Edit Biodata 
+def X(request, id):
     template_name = 'back/account.html'
     user = User.objects.get(username = username)
     biodata = Biodata.objects.get(id=id)

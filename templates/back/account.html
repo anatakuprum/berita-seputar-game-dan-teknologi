@@ -58,7 +58,6 @@
           <!-- Card Basic Info -->
           <form role="form" id="contact-form" method="POST" autocomplete="off">
             {% csrf_token %}
-            {% for u in user %}
             <div class="card mt-4" id="basic-info">
                 <div class="card-header">
                 <h5>Basic Info</h5>
@@ -68,13 +67,13 @@
                     <div class="col-6">
                     <div class="input-group input-group-static">
                         <label>First Name</label>
-                        <input name="first_name" type="text" class="form-control" value="{{ u.first_name }}" placeholder="First Name">
+                        <input name="first_name" type="text" class="form-control" value="{{ user.first_name }}" placeholder="First Name">
                     </div>
                     </div>
                     <div class="col-6">
                     <div class="input-group input-group-static">
                         <label>Last Name</label>
-                        <input name="last_name" type="text" class="form-control" value="{{ u.last_name }}" placeholder="Last Name">
+                        <input name="last_name" type="text" class="form-control" value="{{ user.last_name }}" placeholder="Last Name">
                     </div>
                     </div>
                 </div>
@@ -82,13 +81,13 @@
                     <div class="col-6">
                     <div class="input-group input-group-static">
                         <label>Email</label>
-                        <input type="email" class="form-control" value="{{ u.email }}" placeholder="@email.com">
+                        <input type="email" class="form-control" value="{{ user.email }}" placeholder="@email.com">
                     </div>
                     </div>
                     <div class="col-6">
                     <div class="input-group input-group-static">
                         <label>Telp</label>
-                        <input type="text" class="form-control" value="{{ biodata.telp }}" placeholder="+62">
+                        <input type="text" class="form-control" value="{{ user.telp }}" placeholder="+62">
                     </div>
                     </div>
                 </div>
@@ -96,7 +95,7 @@
                     <div class="col-6">
                     <div class="input-group input-group-static">
                         <label>Alamat</label>
-                        <textarea name="alamat" class="form-control" id="message" rows="4">{{ u.alamat }}</textarea>
+                        <textarea name="alamat" class="form-control" id="message" rows="4">{{ user.alamat }}</textarea>
                     </div>
                     </div>
                     <div class="col-6">
