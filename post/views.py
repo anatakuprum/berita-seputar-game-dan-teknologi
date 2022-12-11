@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User, Group
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import User
+from django.db import transaction
 from .forms import *
 from .models import *
+from user.models import *
 
 # Create your views here.
 def is_admin(user):
@@ -24,7 +28,7 @@ def dashboard(request):
 @login_required
 def posts(request):
     template_name = 'back/posts.html'
-    posting = Posting.objects.all()
+    posting = Posting.objects.filter(nama = request.user)
     context = {
         'title' : 'List Posts',
         'posting' : posting,
@@ -99,3 +103,62 @@ def edit(request, id):
 def delete(request, id):
     Posting.objects.get(id=id).delete()
     return redirect(posts)
+
+@login_required
+def account(request, id):
+    template_name = 'back/account.html'
+    user = User.objects.get(id=id)
+    biodata = Biodata.objects.get(id=id)
+    context = {
+        'title' : 'ACCOUNT',
+        'user' : user,
+        'biodata' : biodata,
+    }
+    return render(request, template_name, context)
+
+def profile(request, id):
+    template_name = 'back/account.html'
+    user = User.objects.get(username = username)
+    biodata = Biodata.objects.get(id=id)
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        alamat = request.POST.get('alamat')
+        telp = request.POST.get('telp')
+        try:
+            with transaction.atomic():
+                user.username = username
+                user.password = password
+                user.first_name = first_name
+                user.last_name = last_name
+                user.email = email
+                user.save()
+                
+                biodata.alamat = alamat
+                biodata.telp = telp
+                biodata.save()
+            #     User.objects.create(
+            #         username = username,
+            #         password = make_password(password),
+            #         first_name = first_name,
+            #         last_name = last_name,
+            #         email = email,
+            #     )
+            #     get_user = User.objects.get(username = username)
+            #     Biodata.objects.create(
+            #         user = get_user,
+            #         alamat = alamat,
+            #         telp = telp,
+            #     )
+            # return redirect('home')
+        except:
+            pass
+    context = {
+        'title' : 'REGISTER',
+        'user' : user,
+        'biodata' : biodata,
+    }
+    return render(request, template_name, context)

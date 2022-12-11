@@ -19,7 +19,7 @@ def home(request):
 
 def blog(request):
     template_name = 'front/blog.html'
-    posting = Posting.objects.filter(nama = request.user)
+    posting = Posting.objects.all()
     context = {
         'title' : 'BLOG',
         'posting' : posting,
@@ -36,7 +36,7 @@ def about(request):
 def detail(request, id):
     template_name = 'front/detail.html'
     posting = Posting.objects.get(id=id)
-    list_posting = Posting.objects.filter(nama = request.user)
+    list_posting = Posting.objects.all()
     context = {
         'title' : 'DETAIL',
         'posting' : posting,

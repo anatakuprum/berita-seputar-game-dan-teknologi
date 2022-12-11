@@ -26,43 +26,54 @@
 <!-- Navbar Transparent -->
 <!-- START HEADER 2 w/ waves and typed text -->
   <header class="position-relative">
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-absolute bg-transparent shadow-none">
-      <div class="container">
-        <a class="navbar-brand text-white" href="{% url 'home' %}">Oreonzuu</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header-2" aria-controls="navbar-header-2" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-header-2">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link text-white" href="{% url 'home' %}">
-                Home
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="{% url 'blog' %}">
-                Blog
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="{% url 'about' %}">
-                About
-              </a>
-            </li>
-          </ul>
-
-          <ul class="navbar-nav d-lg-block d-none">
-            <li class="nav-item">
-              {% if request.user.is_anonymous %}
-                <a href="{% url 'login' %}" class="btn btn-sm  bg-white  mb-0 me-1">Login</a>
-              {% else %}
-                <a href="{% url 'dashboard' %}" class="btn btn-sm  bg-white  mb-0 me-1">Dashboard</a>
-              {% endif %}
-            </li>
-          </ul>
+    <div class="container position-sticky z-index-sticky top-0">
+      <div class="row">
+        <div class="col-12">
+         <nav class="navbar navbar-expand-lg blur border-radius-xl position-absolute my-3 top-0 border-bottom py-3 z-index-3 shadow my-3 py-2 start-0 end-0 mx-4">
+          <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}" rel="tooltip" title="Halaman Home" data-placement="bottom" target="_blank">
+              <b>OREONZUU</b>
+            </a>
+              <span class="navbar-toggler-icon mt-2">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-header-2">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="{% url 'home' %}">
+                    <b>Home</b>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="{% url 'blog' %}">
+                    <b>Blog</b>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="{% url 'about' %}">
+                    <b>About</b>
+                  </a>
+                </li>
+              </ul>
+              <ul class="navbar-nav d-lg-block d-none">
+                <li class="nav-item">
+                  {% if request.user.is_anonymous %}
+                    <a href="{% url 'login' %}" class="btn btn-sm bg-dark text-white mb-0 me-1">Login</a>
+                  {% else %}
+                    <a href="{% url 'dashboard' %}" class="btn btn-sm bg-dark text-white mb-0 me-1">Dashboard</a>
+                  {% endif %}
+                </li>
+              </ul>
+            </div>
+          </div>
+         </nav>
+          <!-- End Navbar -->
         </div>
       </div>
-    </nav>
+    </div>
     <div class="page-header min-vh-50" style="background-image: url('https://images.unsplash.com/photo-1501446529957-6226bd447c46?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2378&q=80');" loading="lazy">
       <span class="mask bg-gradient-dark opacity-4"></span>
       <div class="container">
