@@ -33,6 +33,15 @@ def about(request):
     }
     return render(request, template_name, context)
 
+def detail(request, id):
+    template_name = 'front/detail.html'
+    posting = Posting.objects.get(id=id)
+    context = {
+        'title' : 'Read More',
+        'posting' : posting,
+    }
+    return render(request, template_name, context)
+
 def login(request):
     if request.user.is_authenticated:
         return redirect('home')

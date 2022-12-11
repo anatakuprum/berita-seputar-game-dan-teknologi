@@ -26,8 +26,10 @@ class PostingForms(forms.ModelForm):
             "category" : forms.Select(
                 attrs={
                     'class': 'form-control',
-                    'id': 'choices-category',
+                    'id': 'choices-button',
                     'required': True,
+                    'name':'choices-button',
+                    'placeholder': 'Departure',
                 }
             ),
         }

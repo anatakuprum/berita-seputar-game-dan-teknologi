@@ -1,4 +1,140 @@
 {% extends 'front/page-front.html' %}
 {% block content %}
-
+<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <!-- START Blogs w/ 3 images & quote & text -->
+    <section class="py-5 mt-5">
+      <div class="container">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-lg-8 ms-auto me-auto">
+            <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm">{{ posting.nama }}</h6>
+            <h3 class="title mb-4">{{ posting.judul }}</h3>
+            <p class="text-dark">
+                {{ posting.body|safe }}
+            </p>
+              <h4 class="mb-1">{{ posting.category }}</h4>
+              <p class="lead mb-0">{{ posting.date }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END Features w/ 4 cols w/ colored icon & title & text -->
+    <section class="py-7">
+      <div class="container">
+        <div class="row">
+          <div class="col-9 text-center mx-auto">
+            <h3 class="mb-1">See other articles</h3>
+            <p class="mb-6 px-md-6">Create a unique and beautiful blog posts. You can also connect your blog directly to Google Analytics to have a more detailed look.</p>
+          </div>
+          <div class="col-lg-4 mb-lg-0 mb-4">
+            <div class="card">
+              <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
+                <a href="javascript:;" class="d-block blur-shadow-image">
+                  <img src="../../assets/img/examples/color2.jpg" class="img-fluid border-radius-md" alt="anastasia" loading="lazy">
+                </a>
+              </div>
+              <div class="card-body">
+                <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">House</span>
+                <a href="javascript:;" class="card-title mt-3 h5 d-block text-darker">
+                  Shared Coworking
+                </a>
+                <p class="card-description mb-4">
+                  Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
+                </p>
+                <div class="author align-items-center">
+                  <img src="../../assets/img/team-2.jpg" alt="..." class="avatar shadow" loading="lazy">
+                  <div class="name ps-2">
+                    <span>Mathew Glock</span>
+                    <div class="stats">
+                      <small>Posted on 28 February</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-lg-0 mb-4">
+            <div class="card">
+              <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
+                <a href="javascript:;" class="d-block blur-shadow-image">
+                  <img src="../../assets/img/examples/color3.jpg" class="img-fluid border-radius-md" alt="nastuh" loading="lazy">
+                </a>
+              </div>
+              <div class="card-body">
+                <span class="text-gradient text-info text-uppercase text-xs font-weight-bold">House</span>
+                <a href="javascript:;" class="text-darker card-title mt-3 h5 d-block">
+                  Really Housekeeping
+                </a>
+                <p class="card-description mb-4">
+                  Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
+                </p>
+                <div class="author align-items-center">
+                  <img src="../../assets/img/ivana-squares.jpg" alt="ivana" class="avatar shadow" loading="lazy">
+                  <div class="name ps-2">
+                    <span>Mathew Glock</span>
+                    <div class="stats">
+                      <small>Posted on 28 February</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-lg-0 mb-4">
+            <div class="card">
+              <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
+                <a href="javascript:;" class="d-block blur-shadow-image">
+                  <img src="../../assets/img/examples/color1.jpg" class="img-fluid border-radius-md" alt="annie" loading="lazy">
+                </a>
+              </div>
+              <div class="card-body">
+                <span class="text-gradient text-warning text-uppercase text-xs font-weight-bold">House</span>
+                <a href="javascript:;" class="text-darker card-title mt-3 h5 d-block">
+                  Shared Coworking
+                </a>
+                <p class="card-description mb-4">
+                  Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
+                </p>
+                <div class="author align-items-center">
+                  <img src="../../assets/img/marie.jpg" alt="marie" class="avatar shadow" loading="lazy">
+                  <div class="name ps-2">
+                    <span>Mathew Glock</span>
+                    <div class="stats">
+                      <small>Posted on 28 February</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- START PRE-FOOTER 2 - simple social line w/ title & 3 buttons -->
+    <div class="py-lg-5 py-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4 class="mb-1">Thank you for your support!</h4>
+            <p class="lead mb-0">Delivering the best products</p>
+          </div>
+          <div class="col-lg-6 mt-lg-0 mt-4 d-lg-flex align-items-center justify-content-end">
+            <a href="javascript:;" class="btn btn-twitter mb-lg-0 mb-2 me-2">
+              <i class="fab fa-twitter me-1"></i> Twitter
+            </a>
+            <a href="javascript:;" class="btn btn-facebook mb-lg-0 mb-2 me-2">
+              <i class="fab fa-facebook-square me-1"></i> Facebook
+            </a>
+            <a href="javascript:;" class="btn btn-tumblr mb-lg-0 mb-2 me-2">
+              <i class="fab fa-tumblr me-1"></i> Tumblr
+            </a>
+            <a href="javascript:;" class="btn btn-dribbble mb-lg-0 mb-2">
+              <i class="fab fa-dribbble me-1"></i> Dribbble
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END PRE-FOOTER 2 - simple social line w/ title & 3 buttons -->
+  </div>
 {% endblock %}
