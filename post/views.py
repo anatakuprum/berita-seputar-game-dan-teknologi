@@ -48,6 +48,7 @@ def users(request):
     }
     return render(request, template_name, context)
 
+@login_required
 def visited(request, id):
     template_name = 'back/visited.html'
     posting = Posting.objects.get(id=id)
