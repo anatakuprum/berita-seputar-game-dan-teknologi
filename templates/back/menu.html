@@ -1,3 +1,4 @@
+{% include 'back/plugin.html' %}
 {% load static %}
 <div class="collapse navbar-collapse w-auto h-auto max-height-vh-100 h-100"
      id="sidenav-collapse-main">
@@ -15,10 +16,9 @@
       <div class="collapse" id="ProfileNav" style="">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link text-white"
-               href="{% url 'account' %}">
+            <a class="nav-link text-white" href="{% url 'profile' %}">
               <span class="sidenav-mini-icon">MP</span>
-              <span class="sidenav-normal ms-3 ps-1">Account</span>
+              <span class="sidenav-normal ms-3 ps-1">Profile</span>
             </a>
           </li>
           <li class="nav-item">

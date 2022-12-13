@@ -21,7 +21,7 @@ def dashboard(request):
         request.session['is_admin'] = 'admin'
     template_name = 'back/dashboard.html'
     context = {
-        'title' : 'Dashboard',
+        'title' : 'DASHBOARD',
     }
     return render(request, template_name, context)
 
@@ -30,7 +30,7 @@ def posts(request):
     template_name = 'back/posts.html'
     posting = Posting.objects.filter(nama = request.user)
     context = {
-        'title' : 'List Posts',
+        'title' : 'LIST POSTING',
         'posting' : posting,
     }
     return render(request, template_name, context)
@@ -42,7 +42,7 @@ def users(request):
     users = User.objects.all()
     groups = Group.objects.all()
     context = {
-        'title' : 'List Users',
+        'title' : 'LIST USER',
         'users' : users,
         'groups' : groups,
     }
@@ -53,7 +53,7 @@ def visited(request, id):
     template_name = 'back/visited.html'
     posting = Posting.objects.get(id=id)
     context = {
-        'title' : 'Lihat Postingan',
+        'title' : 'VISITED',
         'posting' : posting,
     }
     return render(request, template_name, context)
@@ -72,7 +72,7 @@ def plus(request):
     else:
         plus = PostingForms()
     context = {
-        'title' : 'Tambah Postingan',
+        'title' : 'PLUS POSTING',
         'category' : category,
         'plus' : plus,
     }
@@ -93,7 +93,7 @@ def edit(request, id):
     else:
         plus = PostingForms(instance=get_posts)
     context = {
-        'title' : 'Edit Posting',
+        'title' : 'EDIT POSTING',
         'category' : category,
         'get_posts' : get_posts,
         'plus': plus,
@@ -106,10 +106,10 @@ def delete(id):
     return redirect(posts)
 
 @login_required
-def account(request):
-    template_name = 'back/account.html'
+def profile(request):
+    template_name = 'back/profile.html'
     context = {
-        'title' : 'ACCOUNT',
+        'title' : 'PROFILE',
     }
     return render(request, template_name, context)
 
