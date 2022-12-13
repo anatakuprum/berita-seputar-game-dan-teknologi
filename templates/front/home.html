@@ -3,42 +3,28 @@
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
     <div class="container">
       <div class="row mb-5 border-radius-xl mt-5 pb-4 w-100 w-md-75 p-0 p-md-3 mx-auto">
-        <div class="col-lg-6 d-flex align-items-center ms-auto">
-          <div class="input-group input-group-outline">
-            <label class="form-label">Type here</label>
-            <input class="form-control" type="text">
-          </div>
-        </div>
-        <div class="col-lg-3 d-flex align-items-center me-auto">
-          <button type="button" class="btn bg-gradient-dark w-100 mb-0 mt-3 mt-lg-0">Search</button>
-        </div>
       </div>
-        <!-- START Testimonials w/ user image & text & info -->
+        <!-- START Content Home -->
         <section class="py-4 position-relative">
           <div class="container-fluid">
             <div class="row">
               <div class="col-10 mx-auto bg-gradient-dark border-radius-lg">
                 <div class="row py-5">
                   <div class="col-xl-4 col-md-6 px-5 position-relative">
-                    <img class="img border-radius-md max-width-300 w-100 position-relative z-index-2 mt-n7" src="https://images.unsplash.com/photo-1521668576204-57ae3afee860?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" loading="lazy" alt="card image">
+                    <img class="img border-radius-md max-width-300 w-100 position-relative z-index-2" src="https://images.unsplash.com/photo-1521668576204-57ae3afee860?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" loading="lazy" alt="card image">
                   </div>
                   <div class="col-xl-4 col-md-5 z-index-2 position-relative px-md-3 px-5 my-md-auto mt-4">
-                    <i class="material-icons text-white text-5xl">format_quote</i>
                     <p class="text-lg text-white">
-                      Decisions: If you can’t decide, the answer is no.
-                      If two equally difficult paths, choose the one more
-                      painful in the short term (pain avoidance is creating
-                      an illusion of equality). Choose the path that leaves
-                      you more equanimous in the long term.
+                      Di bidang pendidikan, manfaat teknologi informasi hadir dalam berbagai bentuk. Dari pengolahan data dengan komputer, e-learning, dan pengerjaan tugas berbasis IT. Dampaknya pun semakin terasa di masa pandemi seperti sekarang. Karena Kegiatan Belajar Mengajar tidak bisa dilakukan secara langsung untuk sementara waktu, aktivitas tersebut kini mengandalkan perangkat seperti laptop dan smartphone untuk pengajaran online hingga mengumpulkan tugas.
                     </p>
-                    <p class="text-white font-weight-bold text-sm">Michael - <span class="text-xs font-weight-normal">Writter</span></p>
+                    <p class="text-white font-weight-bold text-sm"> - {{ user }}<span class="text-xs font-weight-normal"></span></p>
                     <hr class="vertical start-100 ms-n5 d-xl-block d-none">
                   </div>
                   <div class="col-1"></div>
                   <div class="col-xl-2 col-12 px-xl-0 px-5 my-xl-auto">
                     <h3 class="text-white mt-xl-0 mt-5">1,679,700 +</h3>
                     <p class="text-sm text-white opacity-8">Developers and Companies around the world using our products.</p>
-                    <a href="javascript:;" class="text-white icon-move-right text-sm">See all products
+                    <a href="{% url 'blog' %}" class="text-white icon-move-right text-sm">See all Posts
                       <i class="fas fa-arrow-right text-xs ms-1"></i>
                     </a>
                   </div>
@@ -47,15 +33,16 @@
             </div>
           </div>
         </section>
-        <!-- END Testimonials w/ user image & text & info -->
     <!-- START Features w/ icons and text on left & gradient title and text on right -->
     <section class="py-sm-7 py-4">
       <div class="container">
         <div class="row">
           <div class="col-lg-5">
             <h3 class="mt-2">Read More About Us</h3>
-            <p>Pain is what we go through as we become older. We get insulted by others, lose trust for those others. We get back stabbed by friends. It becomes harder for us to give others a hand.</p>
-            <a href="javascript:;" class="text-primary text-sm icon-move-right">More about us
+            <p>
+              Suatu saat nanti, kamu yang hari ini suka menunda-nunda pekerjaan adalah kamu yang nanti akan menyesal karena membuang waktumu untuk melakukan hal-hal yang tidak berguna.
+            </p>
+            <a href="{% url 'about' %}" class="text-primary text-sm icon-move-right">More About Us
               <i class="fas fa-arrow-right text-xs ms-1"></i>
             </a>
           </div>
@@ -65,7 +52,10 @@
                 <i class="material-icons opacity-10">mediation</i>
               </div>
               <div class="description ps-3">
-                <p class="mb-0">It becomes harder for us to give others a hand. <br> We get our heart broken by people we love.</p>
+                <p class="mb-0">
+                  "Bermimpilah setinggi langit, jika engkau jatuh,<br>
+                  engkau akan jatuh di antara bintang." - Soekarno
+                </p>
               </div>
             </div>
             <div class="p-3 info-horizontal d-flex align-items-center">
@@ -73,7 +63,10 @@
                 <i class="material-icons opacity-10">settings_overscan</i>
               </div>
               <div class="description ps-3">
-                <p class="mb-0">As we live, our hearts turn colder. <br>Cause pain is what we go through as we become older.</p>
+                <p class="mb-0">
+                  "Raihlah ilmu dan untuk meraih ilmu,<br>
+                  belajarlah untuk tenang dan sabar." - Umar bin Khattab
+                </p>
               </div>
             </div>
             <div class="p-3 info-horizontal d-flex align-items-center">
@@ -81,7 +74,10 @@
                 <i class="material-icons opacity-10">token</i>
               </div>
               <div class="description ps-3">
-                <p class="mb-0">When we lose family over time. <br> What else could rust the heart more over time? Blackgold.</p>
+                <p class="mb-0">
+                  "Mulailah dari mana kau berada.  Gunakan apa yang<br> 
+                  kau punya. Lakukan apa yang kau bisa." - {{ user }}
+                </p>
               </div>
             </div>
           </div>
@@ -93,12 +89,10 @@
       <div class="container">
         <div class="row text-center justify-content-center">
           <div class="col-lg-6">
-            <span class="badge rounded-pill badge-primary mb-2">Co-working</span>
-            <h2>Explore our places in London </h2>
+            <span class="badge rounded-pill badge-primary mb-2">API The Lazy Media</span>
+            <h2>Web Berita Seputar Teknologi</h2>
             <p>
-              If you can’t decide, the answer is no. If two equally difficult paths,
-              choose the one more painful in the short term (pain avoidance
-              is creating an illusion of equality).
+              The Lazy Media adalah situs game, teknologi, hiburan, dan gadget Anda. Kami memberi Anda berita dan video terbaru langsung dari pembuat konten kami.
             </p>
           </div>
         </div>
@@ -117,7 +111,6 @@
                 <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">Find more</button>
               </div>
             </div>
-            <!-- End Card Raised Header -->
             <!-- Start Card Raised Header -->
             <div class="card mt-5">
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -199,5 +192,4 @@
     <!-- START PRE-FOOTER 8 w/ TEXT, BG IMAGE AND 2 BUTTONS -->
     </div>
   </div>
-
 {% endblock %}
