@@ -19,6 +19,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
   <!-- CSS Files -->
   <link id="pagestyle" href="{% static 'back/css/material-dashboard.css' %}?v=3.0.1" rel="stylesheet"/>
+  <!-- CSS Icon -->
+  <link href="{% static 'back/vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
 </head>
 <body class="g-sidenav-show bg-gray-200">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark" id="sidenav-main">
@@ -26,11 +28,12 @@
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="{% url 'dashboard' %}">
         <img src="{% static 'back/img/logo-ct.png' %}" class="navbar-brand-img h-100" alt="main_logo"/>
-        <span class="ms-1 font-weight-bold text-white">Admin ORZ</span>
+        <span class="ms-1 font-weight-bold text-white">ADMIN ORZ</span>
       </a>
     </div>
     {% include 'back/menu.html' %}
   </aside>
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
   <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
     <!-- NAVBAR -->
     <nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 shadow-none border-radius-xl z-index-sticky" id="navbarBlur" data-scroll="true">
@@ -77,6 +80,7 @@
     
     {% endblock %}
   </div>
+</main>
   <!-- PLUGIN -->
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -141,7 +145,8 @@
   <!-- Core JS Files -->
   <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
   <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
-  <script src="{% static 'back/assets/js/plugins/dropzone.min.js' %}"></script>
+  <script src="{% static 'back/js/plugins/dropzone.min.js' %}"></script>
+  <script src="{% static 'back/js/plugins/fullcalendar.min.js' %}"></script>
   <script src="{% static 'back/js/core/popper.min.js' %}"></script>
   <script src="{% static 'back/js/plugins/sweetalert.min.js' %}"></script>
   <script src="{% static 'back/js/core/bootstrap.min.js' %}"></script>

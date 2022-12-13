@@ -4,37 +4,51 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h5 class="mb-0">Data Users</h5>
+          <h5 class="mb-1">{{ user.first_name }} {{ user.last_name }}</h5>
+          <p class="text-sm mb-0">
+            {{ user.email }}
+          </p>
         </div>
-        <div class="table-responsive">
-          <table class="table align-items-center mb-5">
-            <thead>
-              <tr>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">No</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Name</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Email Addres</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">First Name</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Last Name</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Staff Status</th>
-                <th class="text-secondary"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for u in users %}
+        <div class="card-body px-0 pb-0 mt-n5">
+          <div class="table-responsive">
+            <table class="table table-flush" id="products-list">
+              <thead class="thead-light">
                 <tr>
-                  <td><center>{{ forloop.counter }} </center></td>
-                  <td>{{ u.username }}</td>
-                  <td>{{ u.email }}</td>
-                  <td>{{ u.first_name }}</td>
-                  <td>{{ u.last_name }}</td>
+                  <th>No</th>
+                  <th>Username</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email Addres</th>
+                  <th>Staff Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for u in users %}
+                <tr>
+                  <td class="text-sm">{{ forloop.counter }}</td>
+                  <td class="text-sm">{{ u.username }}</td>
+                  <td class="text-sm">{{ u.first_name }}</td>
+                  <td class="text-sm">{{ u.last_name }}</td>
+                  <td class="text-sm">{{ u.email }}</td>
                   <td>
                     <span class="badge badge-success badge-sm">{{ u.is_staff }}</span>
                   </td>
                 </tr>
-              {% endfor %}
-            </tr>
-          </tbody>
-        </table>
+                {% endfor %}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>No</th>
+                  <th>Username</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email Addres</th>
+                  <th>Staff Status</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>

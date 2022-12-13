@@ -8,9 +8,9 @@
         <div class="card-header pb-0">
           <div class="d-lg-flex">
             <div>
-              <h5 class="mb-0">Posts List</h5>
+              <h5 class="mb-1">{{ user.first_name }} {{ user.last_name }}</h5>
               <p class="text-sm mb-0">
-                Universitas Muhammdiyah Kalimantan Timur
+                {{ user.email }}
               </p>
             </div>
             <div class="ms-auto my-auto mt-lg-0 mt-4">
@@ -21,7 +21,7 @@
             </div>
           </div>
         </div>
-        <div class="card-body px-0 pb-0">
+        <div class="card-body px-0 pb-0 mt-n4">
           <div class="table-responsive">
             <table class="table table-flush" id="products-list">
               <thead class="thead-light">
