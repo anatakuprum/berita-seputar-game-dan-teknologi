@@ -1,89 +1,94 @@
 {% extends 'front/page-front.html' %}
 {% block content %}
 {% load static %}
-<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <!-- START Blogs w/ 3 images & quote & text -->
-    <section class="py-5 mt-5">
-      <div class="container">
-        {% csrf_token %}
-        <div class="row">
-          <div class="col-lg-8 ms-auto me-auto">
-            <h6 class="opacity-7 text-uppercase font-weight-bolder text-sm">{{ posting.nama }}</h6>
-            <h3 class="title mb-4">{{ posting.judul }}</h3>
-            <p class="text-dark">
-                {{ posting.body|safe }}
-            </p>
-              <h4 class="mb-1">{{ posting.category }}</h4>
-              <p class="lead mb-0">{{ posting.date }}</p>
+<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
+  <div class="container">
+     <div class="container py-6 mt-2">
+      <div class="row">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item text-dark opacity-5"><a href="{% url 'home' %}">Front</a></li>
+            <li class="breadcrumb-item text-dark opacity-5"><a href="{% url 'blog' %}">Blog</a></li>
+            <li class="breadcrumb-item text-dark active" aria-current="page">Detail</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+      <!-- START Blogs w/ 3 images & quote & text -->
+      <section class="py-4">
+        <div class="container">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-lg-8 ms-auto me-auto">
+              <p class="badge badge-dark text-white mb-0 me-1 mb-2">{{ posting.category }}</p>
+              <h3 class="title mb-4">{{ posting.judul }}</h3>
+              <p class="text-dark">
+                  {{ posting.body|safe }}
+              </p>
+              <p class="author">
+                <a href="#" class="ms-1"><span class="h5 font-weight-bold text-dark"> {{ posting.nama }} -</span></a>{{ posting.date }}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- END Features w/ 4 cols w/ colored icon & title & text -->
-    <section class="py-7">
-      <div class="container">
-        <div class="row">
-          <div class="col-9 text-center mx-auto">
-            <h3 class="mb-1">See other articles</h3>
-            <p class="mb-6 px-md-6">Create a unique and beautiful blog posts. You can also connect your blog directly to Google Analytics to have a more detailed look.</p>
-          </div>
-          {% for p in list_posting %}
-          <div class="col-lg-4 mb-lg-0 mb-4">
-            <div class="card">
-              {% comment %} <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
-                <a href="javascript:;" class="d-block blur-shadow-image">
-                  <img src="{% static 'front/img/examples/color2.jpg' %}" class="img-fluid border-radius-md" alt="anastasia" loading="lazy">
-                </a>
-              </div> {% endcomment %}
-              <div class="card-body">
-                <span class="text-gradient text-dark text-uppercase text-xs font-weight-bold">{{ p.category }}</span>
-                <a href="{% url 'detail' p.id  %}" class="card-title mt-3 h5 d-block text-darker">
-                    {{ p.judul }}
-                </a>
-                <p class="card-description mb-4">
-                    {{ p.body|safe|truncatechars:200 }}
-                </p>
-                <div class="author align-items-center">
-                  <img src="{% static 'front/img/team-2.jpg' %}" alt="..." class="avatar shadow" loading="lazy">
-                  <div class="name ps-2">
-                    <span>{{ p.nama }}</span>
-                    <div class="stats">
-                      <small>{{ p.date }}</small>
+      </section>
+      <!-- END Features w/ 4 cols w/ colored icon & title & text -->
+      <section class="py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-9 text-center mx-auto">
+              <h3 class="mb-1">Lihat Postingan Lainnya</h3>
+            </div>
+            {% for p in list_posting %}
+            <div class="col-lg-4 mb-lg-0 mb-4 py-4">
+              <div class="card">
+                <div class="card-body">
+                  <span class="text-gradient text-dark text-uppercase text-xs font-weight-bold">{{ p.category }}</span>
+                  <a href="{% url 'detail' p.id  %}" class="card-title mt-3 h5 d-block text-darker">
+                      {{ p.judul }}
+                  </a>
+                  <p class="card-description mb-4">
+                      {{ p.body|safe|truncatechars:200 }}
+                  </p>
+                  <div class="author align-items-center">
+                    <img src="{% static 'front/img/team-2.jpg' %}" alt="..." class="avatar shadow" loading="lazy">
+                    <div class="name ps-2">
+                      <span>{{ p.nama }}</span>
+                      <div class="stats">
+                        <small>{{ p.date }}</small>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            {% endfor %}
           </div>
-          {% endfor %}
         </div>
-      </div>
-    </section>
-    <!-- START PRE-FOOTER 2 - simple social line w/ title & 3 buttons -->
-    <div class="py-lg-5 py-0">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <h4 class="mb-1">Thank you for your support!</h4>
-            <p class="lead mb-0">Delivering the best products</p>
-          </div>
-          <div class="col-lg-6 mt-lg-0 mt-4 d-lg-flex align-items-center justify-content-end">
-            <a href="javascript:;" class="btn btn-twitter mb-lg-0 mb-2 me-2">
-              <i class="fab fa-twitter me-1"></i> Twitter
-            </a>
-            <a href="javascript:;" class="btn btn-facebook mb-lg-0 mb-2 me-2">
-              <i class="fab fa-facebook-square me-1"></i> Facebook
-            </a>
-            <a href="javascript:;" class="btn btn-tumblr mb-lg-0 mb-2 me-2">
-              <i class="fab fa-tumblr me-1"></i> Tumblr
-            </a>
-            <a href="javascript:;" class="btn btn-dribbble mb-lg-0 mb-2">
-              <i class="fab fa-dribbble me-1"></i> Dribbble
-            </a>
+      </section>
+      <!-- START PRE-FOOTER 2 - simple social line w/ title & 3 buttons -->
+      <div class="py-lg-5 py-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <h4 class="mb-1">Terima Kasih Atas Dukungan Anda!</h4>
+              <p class="lead mb-0">Semoga Postingan Ini Bermanfaat.</p>
+            </div>
+            <div class="col-lg-6 mt-lg-0 mt-4 d-lg-flex align-items-center justify-content-end">
+              <a href="https://web.facebook.com/aditya.pranata.3679/" target="_blank" class="btn btn-facebook mb-lg-0 mb-2 me-2">
+                <i class="fab fa-facebook-square me-1"></i> Facebook
+              </a>
+              <a href="https://www.instagram.com/oreonzuu/" target="_blank" class="btn btn-instagram mb-lg-0 mb-2 me-2">
+                <i class="fab fa-instagram me-1"></i> Instagram
+              </a>
+              <a href="https://github.com/AdityaPranata1702/berita-seputar-game-dan-teknologi/" target="_blank" class="btn btn-github mb-lg-0 mb-2">
+                <i class="fab fa-github me-1"></i> Github
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- END PRE-FOOTER 2 - simple social line w/ title & 3 buttons -->
+      <!-- END PRE-FOOTER 2 - simple social line w/ title & 3 buttons -->
   </div>
+</div>
 {% endblock %}
