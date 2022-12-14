@@ -47,11 +47,11 @@
                 <div class="card-body px-0">
                   <p class="text-uppercase font-weight-bold text-info text-xs">{{ p.category }}</p>
                   <h5>
-                    <a href="javascript:;" class="text-dark font-weight-bold">{{ p.judul }}</a>
+                    <a href="{% url 'detail' p.id  %}" class="text-dark font-weight-bold">{{ p.judul }}</a>
                   </h5>
                   <p>
                     {{ p.body|safe|truncatechars:200 }}
-                    <a href="{% url 'detail' p.id %}" class="text-primary icon-move-right"> Read More</a>
+                    <a href="{% url 'detail' p.id  %}" class="text-primary icon-move-right"> Read More</a>
                   </p>
                 </div>
               </div>
