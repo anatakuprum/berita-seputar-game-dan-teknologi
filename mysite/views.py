@@ -7,13 +7,32 @@ from django.db import transaction
 from django.shortcuts import render, redirect
 from post.models import *
 from user.models import *
+import requests
 
 def home(request):
     template_name = 'front/home.html'
-    posting = Posting.objects.all()
+    url = "https://berita-indo-api.vercel.app/v1/tribun-news/"
+    content = requests.get(url).json()
+    
+    x = content['data']
+    image = []
+    date = []
+    title = []
+    body = []
+    link = []
+
+    for o in range(len(x)):
+        c = x[o]
+        image.append(c['image'])
+        date.append(c['isoDate'])
+        title.append(c['title'])
+        body.append(c['contentSnippet'])
+        link.append(c['link'])
+
+    mycontent = zip(image, date, title, body, link,)
     context = {
         'title' : 'HOME',
-        'posting' : posting,
+        'mycontent' : mycontent
     }
     return render(request, template_name, context)
 

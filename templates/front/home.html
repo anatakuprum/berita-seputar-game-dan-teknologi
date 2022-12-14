@@ -1,5 +1,6 @@
 {% extends 'front/page-front.html' %}
 {% block content %}
+</div>
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
     <div class="container">
       <div class="container py-6 mt-2">
@@ -41,163 +42,96 @@
             </div>
           </div>
         </section>
-    <!-- START Features w/ icons and text on left & gradient title and text on right -->
-    <section class="py-sm-7 py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5">
-            <h3 class="mt-2">Read More About Us</h3>
-            <p>
-              Suatu saat nanti, kamu yang hari ini suka menunda-nunda pekerjaan adalah kamu yang nanti akan menyesal karena membuang waktumu untuk melakukan hal-hal yang tidak berguna.
-            </p>
-            <a href="{% url 'about' %}" class="text-primary text-sm icon-move-right">More About Us
-              <i class="fas fa-arrow-right text-xs ms-1"></i>
-            </a>
-          </div>
-          <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0 ms-auto">
-            <div class="p-3 info-horizontal d-flex align-items-center">
-              <div class="icon icon-md icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl">
-                <i class="material-icons opacity-10">mediation</i>
-              </div>
-              <div class="description ps-3">
-                <p class="mb-0">
-                  "Bermimpilah setinggi langit, jika engkau jatuh,<br>
-                  engkau akan jatuh di antara bintang." - Soekarno
+        <!-- START Features w/ icons and text on left & gradient title and text on right -->
+        <section class="py-sm-7 py-4">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-5">
+                <h3 class="mt-2">Read More About Us</h3>
+                <p>
+                  Suatu saat nanti, kamu yang hari ini suka menunda-nunda pekerjaan adalah kamu yang nanti akan menyesal karena membuang waktumu untuk melakukan hal-hal yang tidak berguna.
                 </p>
+                <a href="{% url 'about' %}" class="text-primary text-sm icon-move-right">More About Us
+                  <i class="fas fa-arrow-right text-xs ms-1"></i>
+                </a>
               </div>
-            </div>
-            <div class="p-3 info-horizontal d-flex align-items-center">
-              <div class="icon icon-md icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl">
-                <i class="material-icons opacity-10">settings_overscan</i>
-              </div>
-              <div class="description ps-3">
-                <p class="mb-0">
-                  "Raihlah ilmu dan untuk meraih ilmu,<br>
-                  belajarlah untuk tenang dan sabar." - Umar bin Khattab
-                </p>
-              </div>
-            </div>
-            <div class="p-3 info-horizontal d-flex align-items-center">
-              <div class="icon icon-md icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl">
-                <i class="material-icons opacity-10">token</i>
-              </div>
-              <div class="description ps-3">
-                <p class="mb-0">
-                  "Mulailah dari mana kau berada.  Gunakan apa yang<br> 
-                  kau punya. Lakukan apa yang kau bisa." - {{ user }}
-                </p>
+              <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0 ms-auto">
+                <div class="p-3 info-horizontal d-flex align-items-center">
+                  <div class="icon icon-md icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl">
+                    <i class="material-icons opacity-10">mediation</i>
+                  </div>
+                  <div class="description ps-3">
+                    <p class="mb-0">
+                      "Bermimpilah setinggi langit, jika engkau jatuh,<br>
+                      engkau akan jatuh di antara bintang." - Soekarno
+                    </p>
+                  </div>
+                </div>
+                <div class="p-3 info-horizontal d-flex align-items-center">
+                  <div class="icon icon-md icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl">
+                    <i class="material-icons opacity-10">settings_overscan</i>
+                  </div>
+                  <div class="description ps-3">
+                    <p class="mb-0">
+                      "Raihlah ilmu dan untuk meraih ilmu,<br>
+                      belajarlah untuk tenang dan sabar." - Umar bin Khattab
+                    </p>
+                  </div>
+                </div>
+                <div class="p-3 info-horizontal d-flex align-items-center">
+                  <div class="icon icon-md icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl">
+                    <i class="material-icons opacity-10">token</i>
+                  </div>
+                  <div class="description ps-3">
+                    <p class="mb-0">
+                      "Mulailah dari mana kau berada.  Gunakan apa yang<br> 
+                      kau punya. Lakukan apa yang kau bisa." - {{ user }}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <!-- END Features w/ icons and text on left & gradient title and text on right -->
-    <section class="features-3 py-4">
-      <div class="container">
-        <div class="row text-center justify-content-center">
-          <div class="col-lg-6">
-            <span class="badge rounded-pill badge-primary mb-2">API The Lazy Media</span>
-            <h2>Web Berita Seputar Teknologi</h2>
-            <p>
-              The Lazy Media adalah situs game, teknologi, hiburan, dan gadget Anda. Kami memberi Anda berita dan video terbaru langsung dari pembuat konten kami.
-            </p>
+        </section>
+        <!-- END Features w/ icons and text on left & gradient title and text on right -->
+        <section class="py-5">
+          <div class="container">
+              <div class="row text-center justify-content-center">
+                  <div class="col-lg-6">
+                  <span class="badge rounded-pill badge-primary mb-2">API Tribun News</span>
+                  <h2>Web Berita Terbesar Di Indonesia</h2>
+                  <p>
+                    Tribunnews.com merupakan satu-satunya Portal Berita Online yang memiliki jaringan kanal berita daerah terbesar di Indonesia, terdapat lebih dari 23 kanal berita online yang tersedia. Portal media network Tribunnews.com telah memiliki lebih dari 1,1 juta daily visitors.
+                  </p>
+                </div>
+              </div>
+            <div class="row">
+              {% for image,date,title,body,link in mycontent %}
+              <div class="col-lg-3 col-sm-6">
+                <div class="card card-plain card-blog mt-4">
+                  <div class="card-header p-0 position-relative z-index-2">
+                    <a class="d-block blur-shadow-image">
+                      <img src="{{ image }}" alt="img-blur-shadow" class="img-fluid border-radius-lg">
+                    </a>
+                  </div>
+                  <div class="card-body px-0">
+                    <p class="text-uppercase font-weight-bold text-info text-xs">{{ date }}</p>
+                    <h5>
+                      <a href="javascript:;" class="text-dark font-weight-bold">{{ title }}</a>
+                    </h5>
+                    <p>
+                      {{ body|truncatechars:150 }}
+                      <a href="{{ link }}" class="text-primary icon-move-right" target="_blank"> Read More</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
           </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-lg-4 mb-lg-0 mb-4">
-            <!-- Start Card Raised Header -->
-            <div class="card">
-              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <a class="d-block blur-shadow-image">
-                  <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="font-weight-normal">Campus 6</h5>
-                <p>Website visitors today demand a frictionless user expericence. Applies to mobile applications too.</p>
-                <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">Find more</button>
-              </div>
-            </div>
-            <!-- Start Card Raised Header -->
-            <div class="card mt-5">
-              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <a class="d-block blur-shadow-image">
-                  <img src="https://images.unsplash.com/photo-1589884629108-3193400c7cc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="font-weight-normal">Virtual Office</h5>
-                <p>If you’re more passionate about founding a business than the business itself, you can fall into.</p>
-                <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">More info</button>
-              </div>
-            </div>
-            <!-- End Card Raised Header -->
-          </div>
-          <div class="col-lg-4 mb-lg-0 mb-4">
-            <!-- Start Card Raised Header -->
-            <div class="card">
-              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <a class="d-block blur-shadow-image">
-                  <img src="https://images.unsplash.com/photo-1498677231914-50deb6ba4217?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="font-weight-normal">Cozy Spots</h5>
-                <p>If you’re more passionate about founding a business than the business itself technology.</p>
-                <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">More info</button>
-              </div>
-            </div>
-            <!-- End Card Raised Header -->
-            <!-- Start Card Raised Header -->
-            <div class="card mt-5">
-              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <a class="d-block blur-shadow-image">
-                  <img src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="font-weight-normal">Co-working Spaces</h5>
-                <p>Smart money is just dumb money that’s been through a crash. Business than the business itself.</p>
-                <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">Find more</button>
-              </div>
-            </div>
-            <!-- End Card Raised Header -->
-          </div>
-          <div class="col-lg-4">
-            <!-- Start Card Raised Header -->
-            <div class="card">
-              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <a class="d-block blur-shadow-image">
-                  <img src="https://images.unsplash.com/photo-1587578932405-7c740a762f7f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="font-weight-normal">Home Office</h5>
-                <p>Website visitors today demand a frictionless user expericence — especially when using search.</p>
-                <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">Find more</button>
-              </div>
-            </div>
-            <!-- End Card Raised Header -->
-            <!-- Start Card Raised Header -->
-            <div class="card mt-5">
-              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <a class="d-block blur-shadow-image">
-                  <img src="https://images.unsplash.com/photo-1461988625982-7e46a099bf4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="font-weight-normal">Private Space</h5>
-                <p>Technology is not only the thing that moves the human race forward, but it’s the only thing that has.</p>
-                <button class="btn btn-outline-dark btn-sm mb-0" type="button" name="button">More info</button>
-              </div>
-            </div>
-            <!-- End Card Raised Header -->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- START PRE-FOOTER 8 w/ TEXT, BG IMAGE AND 2 BUTTONS -->
+        </section>
+        <!-- START PRE-FOOTER 8 w/ TEXT, BG IMAGE AND 2 BUTTONS -->
     </div>
   </div>
+</div>
 {% endblock %}

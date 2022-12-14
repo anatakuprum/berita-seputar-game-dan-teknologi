@@ -32,33 +32,27 @@
           </div>
         </div>
       </section>
-      <!-- END Features w/ 4 cols w/ colored icon & title & text -->
+      <!-- START Blogs w/ 4 cards w/ image & text & link -->
       <section class="py-5">
         <div class="container">
+          <div class="col-9 text-center mx-auto">
+            <h3 class="mb-1">Lihat Postingan Lainnya</h3>
+          </div>
           <div class="row">
-            <div class="col-9 text-center mx-auto">
-              <h3 class="mb-1">Lihat Postingan Lainnya</h3>
-            </div>
             {% for p in list_posting %}
-            <div class="col-lg-4 mb-lg-0 mb-4 py-4">
-              <div class="card">
-                <div class="card-body">
-                  <span class="text-gradient text-dark text-uppercase text-xs font-weight-bold">{{ p.category }}</span>
-                  <a href="{% url 'detail' p.id  %}" class="card-title mt-3 h5 d-block text-darker">
-                      {{ p.judul }}
-                  </a>
-                  <p class="card-description mb-4">
-                      {{ p.body|safe|truncatechars:200 }}
+            <div class="col-lg-3 col-sm-6">
+              <div class="card card-plain card-blog mt-4">
+                <div class="card-header p-0 position-relative z-index-2">
+                </div>
+                <div class="card-body px-0">
+                  <p class="text-uppercase font-weight-bold text-info text-xs">{{ p.category }}</p>
+                  <h5>
+                    <a href="javascript:;" class="text-dark font-weight-bold">{{ p.judul }}</a>
+                  </h5>
+                  <p>
+                    {{ p.body|safe|truncatechars:200 }}
+                    <a href="{% url 'detail' p.id %}" class="text-primary icon-move-right"> Read More</a>
                   </p>
-                  <div class="author align-items-center">
-                    <img src="{% static 'front/img/team-2.jpg' %}" alt="..." class="avatar shadow" loading="lazy">
-                    <div class="name ps-2">
-                      <span>{{ p.nama }}</span>
-                      <div class="stats">
-                        <small>{{ p.date }}</small>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
