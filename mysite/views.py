@@ -7,21 +7,40 @@ from django.db import transaction
 from django.shortcuts import render, redirect
 from post.models import *
 from user.models import *
+import requests
 
 def home(request):
     template_name = 'front/home.html'
-    posting = Posting.objects.all()
+    url = "https://berita-indo-api.vercel.app/v1/tribun-news/"
+    content = requests.get(url).json()
+    
+    x = content['data']
+    image = []
+    date = []
+    title = []
+    body = []
+    link = []
+
+    for o in range(len(x)):
+        c = x[o]
+        image.append(c['image'])
+        date.append(c['isoDate'])
+        title.append(c['title'])
+        body.append(c['contentSnippet'])
+        link.append(c['link'])
+
+    mycontent = zip(image, date, title, body, link,)
     context = {
-        'title' : 'Halaman Home',
-        'posting' : posting,
+        'title' : 'HOME',
+        'mycontent' : mycontent
     }
     return render(request, template_name, context)
 
 def blog(request):
     template_name = 'front/blog.html'
-    posting = Posting.objects.filter(nama = request.user)
+    posting = Posting.objects.all()
     context = {
-        'title' : 'Halaman Blog',
+        'title' : 'BLOG',
         'posting' : posting,
     }
     return render(request, template_name, context)
@@ -29,7 +48,18 @@ def blog(request):
 def about(request):
     template_name = 'front/about.html'
     context = {
-        'title' : 'Halaman About'
+        'title' : 'ABOUT'
+    }
+    return render(request, template_name, context)
+
+def detail(request, id):
+    template_name = 'front/detail.html'
+    posting = Posting.objects.get(id=id)
+    list_posting = Posting.objects.all()
+    context = {
+        'title' : 'DETAIL',
+        'posting' : posting,
+        'list_posting' : list_posting,
     }
     return render(request, template_name, context)
 
@@ -51,7 +81,7 @@ def login(request):
             print("Account Yang Kamu Masukan Salah")
         
     context = {
-        'title' : 'Halaman Sign In'
+        'title' : 'LOGIN'
     }
     return render(request, template_name, context)
 
@@ -84,7 +114,7 @@ def register(request):
         except:
             pass
     context = {
-        'title' : 'Halaman Register'
+        'title' : 'REGISTER'
     }
     return render(request, template_name, context)
 

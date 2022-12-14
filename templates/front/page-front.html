@@ -1,6 +1,5 @@
 {% load static %}
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,69 +22,74 @@
 </head>
 
 <body class="blog-categories bg-gray-200">
-<!-- Navbar Transparent -->
 <!-- START HEADER 2 w/ waves and typed text -->
   <header class="position-relative">
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-absolute bg-transparent shadow-none">
-      <div class="container">
-        <a class="navbar-brand text-white" href="{% url 'home' %}">Oreonzuu</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header-2" aria-controls="navbar-header-2" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-header-2">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link text-white" href="{% url 'home' %}">
-                Home
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="{% url 'blog' %}">
-                Blog
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="{% url 'about' %}">
-                About
-              </a>
-            </li>
-          </ul>
-
-          <ul class="navbar-nav d-lg-block d-none">
-            <li class="nav-item">
-              {% if request.user.is_anonymous %}
-                <a href="{% url 'login' %}" class="btn btn-sm  bg-white  mb-0 me-1">Login</a>
-              {% else %}
-                <a href="{% url 'dashboard' %}" class="btn btn-sm  bg-white  mb-0 me-1">Dashboard</a>
-              {% endif %}
-            </li>
-          </ul>
+    <div class="container position-sticky z-index-sticky top-0">
+      <div class="row">
+        <div class="col-12">
+         <nav class="navbar navbar-expand-lg blur border-radius-xl position-absolute my-3 top-0 border-bottom py-3 z-index-3 shadow my-3 py-2 start-0 end-0 mx-4">
+          <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}" rel="tooltip" title="Halaman Home" data-placement="bottom">
+              <b>OREONZUU</b>
+            </a>
+              <span class="navbar-toggler-icon mt-2">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-header-2">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="{% url 'home' %}">
+                    <b>Home</b>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="{% url 'blog' %}">
+                    <b>Blog</b>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="{% url 'about' %}">
+                    <b>About</b>
+                  </a>
+                </li>
+              </ul>
+              <ul class="navbar-nav d-lg-block d-none">
+                <li class="nav-item">
+                  {% if request.user.is_anonymous %}
+                    <a href="{% url 'login' %}" class="btn btn-sm bg-dark text-white mb-0 me-1">Login</a>
+                  {% else %}
+                    <a href="{% url 'dashboard' %}" class="btn btn-sm bg-dark text-white mb-0 me-1">Dashboard</a>
+                  {% endif %}
+                </li>
+              </ul>
+            </div>
+          </div>
+         </nav>
+          <!-- End Navbar -->
         </div>
       </div>
-    </nav>
-    <div class="page-header min-vh-100" style="background-image: url({% static 'front/img/bg9.jpg' %});" loading="lazy">
+    </div>
+    <div class="page-header min-vh-50" style="background-image: url('https://images.unsplash.com/photo-1501446529957-6226bd447c46?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2378&q=80');" loading="lazy">
       <span class="mask bg-gradient-dark opacity-4"></span>
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 text-center mx-auto">
-            <h1 class="text-white">Oreonzuu Adalah Web Berita Seputar <span class="text-white" id="typed"></span></h1>
-              <div id="typed-strings">
-                <h1>Game</h1>
-                <h1>Teknologi</h1>
-                <h1>Console</h1>
-              </div>
-            <p class="lead text-white text-center pe-5 mt-4">Oreonzuu adalah situs game, teknologi, hiburan, dan gadget. Kami memberi Anda berita dan video terbaru langsung dari pembuat konten kami.</p>
-            <br />
-            <div class="buttons text-center">
-              <button type="button" class="btn btn-white">Berita</button>
-            </div>
+          <div class="col-lg-8 mx-auto text-white text-center">
+            <h2 class="text-white">Oreonzuu Adalah Web Berita Seputar <span class="text-white" id="typed"></span></h2>
+                <div id="typed-strings">
+                    <h2>Game</h2>
+                    <h2>Teknologi</h2>
+                    <h2>Console</h2>
+                </div>
+            <p class="lead">Oreonzuu adalah situs game, teknologi, hiburan, dan gadget. Kami memberi Anda berita dan video terbaru langsung dari pembuat konten kami.</p>
           </div>
         </div>
       </div>
     </div>
   </header>
   <!-- END HEADER 2 w/ waves and typed text -->
-  <!-- END HEADER 4 w/ search book a ticket form -->
   {% block content %} 
   {% load static %} 
   
@@ -98,17 +102,17 @@
           <h6 class="text-dark font-weight-bolder text-uppercase mb-lg-4 mb-3">Aditya Pranata</h6>
           <ul class="nav flex-row ms-n3 justify-content-lg-start justify-content-center mb-4 mt-sm-0">
             <li class="nav-item">
-              <a class="nav-link text-dark opacity-8" href="https://www.creative-tim.com" target="_blank">
+              <a class="nav-link text-dark opacity-8" href="{% url 'home' %}">
                 Home
               </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark opacity-8" href="https://www.creative-tim.com/blog" target="_blank">
+                <a class="nav-link text-dark opacity-8" href="{% url 'blog' %}">
                   Blog
                 </a>
               </li>
             <li class="nav-item">
-              <a class="nav-link text-dark opacity-8" href="https://www.creative-tim.com/presentation" target="_blank">
+              <a class="nav-link text-dark opacity-8" href="{% url 'about' %}">
                 About
               </a>
             </li>
@@ -116,34 +120,34 @@
           <p class="text-sm text-dark opacity-8 mb-0">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> Website Berita Oreonzuu by Admin UMKT.
+            </script> Website Berita Oreonzuu by Admin ORZ.
           </p>
         </div>
         <div class="col-lg-6 ms-auto text-lg-end text-center">
           <p class="mb-5 text-lg text-dark font-weight-bold">
-           "Menyerah berarti menerima bahwa kamu lelah. Tetapi untuk beristirahat dan mencoba lagi adalah tanda sebuah tekad."
+           "Menyerah berarti menerima bahwa kamu lelah. Tetapi untuk<br> 
+           beristirahat dan mencoba lagi adalah tanda sebuah tekad."
           </p>
-          <a href="javascript:;" target="_blank" class="text-dark me-xl-4 me-4 opacity-8">
-            <span class="fab fa-dribbble"></span>
+          <a href="https://web.facebook.com/aditya.pranata.3679/" target="_blank" class="text-dark me-xl-4 me-4 opacity-8">
+            <span class="fab fa-facebook"></span>
           </a>
-          <a href="javascript:;" target="_blank" class="text-dark me-xl-4 me-4 opacity-8">
-            <span class="fab fa-twitter"></span>
+          <a href="https://www.instagram.com/oreonzuu/" target="_blank" class="text-dark me-xl-4 me-4 opacity-8">
+            <span class="fab fa-instagram"></span>
           </a>
-          <a href="javascript:;" target="_blank" class="text-dark me-xl-4 me-4 opacity-8">
-            <span class="fab fa-pinterest"></span>
-          </a>
-          <a href="javascript:;" target="_blank" class="text-dark opacity-5">
+          <a href="https://github.com/AdityaPranata1702/berita-seputar-game-dan-teknologi/" target="_blank" class="text-dark me-xl-4 me-4 opacity-8">
             <span class="fab fa-github"></span>
           </a>
         </div>
       </div>
     </div>
   </footer>
-  <!-- END FOOTER 5 w/ DARK BACKGROUND -->
-  <!--   Core JS Files   -->
+  <!-- Core JS Files -->
+  <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+  <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
   <script src="{% static 'front/js/core/popper.min.js' %}" type="text/javascript"></script>
   <script src="{% static 'front/js/core/bootstrap.min.js' %}" type="text/javascript"></script>
   <script src="{% static 'front/js/plugins/perfect-scrollbar.min.js' %}"></script>
+  <script src="{% static 'front/js/plugins/flatpickr.min.js' %}"></script>
   <!--  Plugin for TypedJS, full documentation here: https://github.com/mattboldt/typed.js/ -->
   <script src="{% static 'front/js/plugins/typedjs.js' %}"></script>
   <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
@@ -159,12 +163,12 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="{% static 'front/js/material-kit-pro.min.js' %}?v=3.0.0" type="text/javascript"></script>
   <!-- Mandatory init script -->
-  <script>
-    if (document.getElementById("typed")) {
+  <script type="text/javascript">
+    if (document.getElementById('typed')) {
       var typed = new Typed("#typed", {
-        stringsElement: "#typed-strings",
-        typeSpeed: 70,
-        backSpeed: 50,
+        stringsElement: '#typed-strings',
+        typeSpeed: 90,
+        backSpeed: 90,
         backDelay: 200,
         startDelay: 500,
         loop: true
@@ -172,5 +176,4 @@
     }
   </script>
 </body>
-
 </html>

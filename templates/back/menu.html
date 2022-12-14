@@ -15,23 +15,15 @@
       <div class="collapse" id="ProfileNav" style="">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link text-white"
-               href="../../pages/pages/profile/overview.html">
-              <span class="sidenav-mini-icon">MP</span>
-              <span class="sidenav-normal ms-3 ps-1">My Profile</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white"
-               href="../../pages/pages/account/settings.html">
-              <span class="sidenav-mini-icon">S</span>
-              <span class="sidenav-normal ms-3 ps-1">Settings</span>
+            <a class="nav-link text-white" href="{% url 'profile' %}">
+              <span class="sidenav-mini-icon">PFL</span>
+              <span class="sidenav-normal ms-3 ps-1">Profile</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white"
                href="{% url 'logout' %}">
-              <span class="sidenav-mini-icon">L</span>
+              <span class="sidenav-mini-icon">LT</span>
               <span class="sidenav-normal ms-3 ps-1">Logout</span>
             </a>
           </li>
@@ -41,15 +33,15 @@
     <hr class="horizontal light mt-0" />
     <li class="nav-item">
       <a class="nav-link text-whit" href="{% url 'posts' %}">
-        <i class="material-icons-round {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">content_paste</i>
-        <span class="nav-link-text ms-2 ps-1">Posts</span>
+        <i class="material-icons-round {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">receipt_long</i>
+        <span class="nav-link-text ms-2 ps-1">LIST POSTING</span>
       </a>
     </li>
     {% if request.session.is_admin == 'admin' %}
     <li class="nav-item">
       <a class="nav-link text-whit" href="{% url 'users' %}">
-        <i class="material-icons-round {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">content_paste</i>
-        <span class="nav-link-text ms-2 ps-1">Users</span>
+        <i class="material-icons-round {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">list_alt</i>
+        <span class="nav-link-text ms-2 ps-1">LIST USER</span>
       </a>
     </li>
     {% endif %}

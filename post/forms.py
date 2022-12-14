@@ -1,3 +1,4 @@
+from templates.back import *
 from django import forms
 from django.db.models import fields
 from django.forms import widgets
@@ -12,7 +13,8 @@ class PostingForms(forms.ModelForm):
                 attrs={
                     'class': 'form-control',
                     'type': 'text',
-                    'required': True,
+                    'aria-label': 'Username',
+                    'aria-describedby':'basic-addon1',
                 }
             ),
             "body" : forms.Textarea(
@@ -25,9 +27,11 @@ class PostingForms(forms.ModelForm):
             ),
             "category" : forms.Select(
                 attrs={
-                    'class': 'form-control',
-                    'id': 'choices-category',
+                    'class': 'dropdown-item',
+                    'id': 'choices-button',
                     'required': True,
+                    'name':'choices-button',
+                    'placeholder': 'Departure',
                 }
             ),
         }

@@ -1,70 +1,35 @@
-{% extends 'back/page-back.html' %} {% block content %}
+{% extends 'back/page-back.html' %} 
+{% load static %}
+{% block content %}
 <div class="container-fluid py-4">
   <div class="row mt-4">
     <div class="col-lg-9 col-12 mx-auto position-relative">
       <div class="card">
+        <!-- Card header -->
         <div class="card-header p-3 pt-2">
-          <div
-            class="icon icon-lg icon-shape bg-gradient-dark shadow text-center border-radius-xl mt-n4 me-3 float-start"
-          >
-            <i class="material-icons opacity-10">event</i>
+          <div class="icon icon-lg icon-shape bg-gradient-dark shadow text-center border-radius-xl mt-n4 me-3 float-start">
+            <i class="material-icons opacity-10">post_add</i>
           </div>
           <h6 class="mb-0">{{ title }}</h6>
         </div>
         <form class="card-body pt-2" method="POST">
           {% csrf_token %}
-          <div class="input-group input-group-static mb-4">
-            <label for="projectName" class="form-label">Judul</label>
-            {% comment %} <input name="judul" type="text" class="form-control" value="{{ get_posts.judul }}"/> {% endcomment %}
+          <div class="row col-lg-10 mx-auto">
             {{ plus.judul }}
           </div>
-          <div class="row">
-            <label for="projectName" class="form-label">Body</label>
-            <div class="input-group input-group-dynamic mb-4">
+          <div class="row pt-4">
+            <div class="row col-lg-12 mx-auto">
               {{ plus.body }}
-              {% comment %} <textarea
-                name="body"
-                cols="20"
-                rows="10"
-                class="form-control"
-              >{{ get_posts.body }}</textarea> {% endcomment %}
             </div>
           </div>
-          <div class="col-sm-6 mt-sm-3 mt-5">
-            <label for="projectName" class="form-label">Category</label>
+          <div class="row mb-5 pt-4 col-lg-10 mx-auto">
             {{ plus.category }}
-            {% comment %} <select class="form-control" name="category" id="choices-category">
-              {% for c in category %}
-              {% if get_posts.category == c %}
-              <option value="{{ c.nama }}" selected="selected">{{ c.nama }}</option>
-              {% else %}
-              <option value="{{ c.nama }}">{{ c.nama }}</option>
-              {% endif %}
-              {% endfor %}
-            </select> {% endcomment %}
           </div>
-          {% comment %} <div class="row">
-            <label class="mt-4">Date</label>
-            <div class="col-4">
-              <div class="input-group input-group-static">
-                <input
-                  name="date"
-                  class="form-control datetimepicker"
-                  type="text"
-                  data-input
-                  value="{{ get_posts.date }}"
-                />
-              </div>
-            </div>
-          </div> {% endcomment %}
           <div class="d-flex justify-content-end mt-4">
             <a href="{% url 'posts' %}" type="button" name="button" class="btn btn-light m-0">
               Cancel
             </a>
-            <button
-              type="submit"
-              class="btn bg-gradient-dark m-0 ms-2"
-            >
+            <button type="submit" class="btn bg-gradient-dark m-0 ms-2">
               Posting
             </button>
           </div>

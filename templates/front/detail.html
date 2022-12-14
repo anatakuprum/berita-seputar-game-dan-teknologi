@@ -1,0 +1,88 @@
+{% extends 'front/page-front.html' %}
+{% block content %}
+{% load static %}
+<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
+  <div class="container">
+     <div class="container py-6 mt-2">
+      <div class="row">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item text-dark opacity-5"><a href="{% url 'home' %}">Front</a></li>
+            <li class="breadcrumb-item text-dark opacity-5"><a href="{% url 'blog' %}">Blog</a></li>
+            <li class="breadcrumb-item text-dark active" aria-current="page">Detail</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+      <!-- START Blogs w/ 3 images & quote & text -->
+      <section class="py-4">
+        <div class="container">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-lg-8 ms-auto me-auto">
+              <p class="badge badge-dark text-white mb-0 me-1 mb-2">{{ posting.category }}</p>
+              <h3 class="title mb-4">{{ posting.judul }}</h3>
+              <p class="text-dark">
+                  {{ posting.body|safe }}
+              </p>
+              <p class="author">
+                <a href="#" class="ms-1"><span class="h5 font-weight-bold text-dark"> {{ posting.nama }} -</span></a>{{ posting.date }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- START Blogs w/ 4 cards w/ image & text & link -->
+      <section class="py-5">
+        <div class="container">
+          <div class="col-9 text-center mx-auto">
+            <h3 class="mb-1">Lihat Postingan Lainnya</h3>
+          </div>
+          <div class="row">
+            {% for p in list_posting %}
+            <div class="col-lg-3 col-sm-6">
+              <div class="card card-plain card-blog mt-4">
+                <div class="card-header p-0 position-relative z-index-2">
+                </div>
+                <div class="card-body px-0">
+                  <p class="text-uppercase font-weight-bold text-info text-xs">{{ p.category }}</p>
+                  <h5>
+                    <a href="javascript:;" class="text-dark font-weight-bold">{{ p.judul }}</a>
+                  </h5>
+                  <p>
+                    {{ p.body|safe|truncatechars:200 }}
+                    <a href="{% url 'detail' p.id %}" class="text-primary icon-move-right"> Read More</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+      <!-- START PRE-FOOTER 2 - simple social line w/ title & 3 buttons -->
+      <div class="py-lg-5 py-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <h4 class="mb-1">Terima Kasih Atas Dukungan Anda!</h4>
+              <p class="lead mb-0">Semoga Postingan Ini Bermanfaat.</p>
+            </div>
+            <div class="col-lg-6 mt-lg-0 mt-4 d-lg-flex align-items-center justify-content-end">
+              <a href="https://web.facebook.com/aditya.pranata.3679/" target="_blank" class="btn btn-facebook mb-lg-0 mb-2 me-2">
+                <i class="fab fa-facebook-square me-1"></i> Facebook
+              </a>
+              <a href="https://www.instagram.com/oreonzuu/" target="_blank" class="btn btn-instagram mb-lg-0 mb-2 me-2">
+                <i class="fab fa-instagram me-1"></i> Instagram
+              </a>
+              <a href="https://github.com/AdityaPranata1702/berita-seputar-game-dan-teknologi/" target="_blank" class="btn btn-github mb-lg-0 mb-2">
+                <i class="fab fa-github me-1"></i> Github
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END PRE-FOOTER 2 - simple social line w/ title & 3 buttons -->
+  </div>
+</div>
+{% endblock %}

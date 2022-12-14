@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User, Group
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import User
+from django.db import transaction
 from .forms import *
 from .models import *
+from user.models import *
 
 # Create your views here.
 def is_admin(user):
@@ -17,16 +21,16 @@ def dashboard(request):
         request.session['is_admin'] = 'admin'
     template_name = 'back/dashboard.html'
     context = {
-        'title' : 'Dashboard',
+        'title' : 'DASHBOARD',
     }
     return render(request, template_name, context)
 
 @login_required
 def posts(request):
     template_name = 'back/posts.html'
-    posting = Posting.objects.all()
+    posting = Posting.objects.filter(nama = request.user)
     context = {
-        'title' : 'List Posts',
+        'title' : 'LIST POSTING',
         'posting' : posting,
     }
     return render(request, template_name, context)
@@ -38,17 +42,18 @@ def users(request):
     users = User.objects.all()
     groups = Group.objects.all()
     context = {
-        'title' : 'List Users',
+        'title' : 'LIST USER',
         'users' : users,
         'groups' : groups,
     }
     return render(request, template_name, context)
 
+@login_required
 def visited(request, id):
     template_name = 'back/visited.html'
     posting = Posting.objects.get(id=id)
     context = {
-        'title' : 'Lihat Postingan',
+        'title' : 'VISITED',
         'posting' : posting,
     }
     return render(request, template_name, context)
@@ -67,7 +72,7 @@ def plus(request):
     else:
         plus = PostingForms()
     context = {
-        'title' : 'Tambah Postingan',
+        'title' : 'PLUS POSTING',
         'category' : category,
         'plus' : plus,
     }
@@ -88,7 +93,7 @@ def edit(request, id):
     else:
         plus = PostingForms(instance=get_posts)
     context = {
-        'title' : 'edit Posting',
+        'title' : 'EDIT POSTING',
         'category' : category,
         'get_posts' : get_posts,
         'plus': plus,
@@ -96,6 +101,62 @@ def edit(request, id):
     return render(request, template_name, context)
 
 @login_required
-def delete(request, id):
+def delete(id):
     Posting.objects.get(id=id).delete()
     return redirect(posts)
+
+@login_required
+def profile(request):
+    template_name = 'back/profile.html'
+    context = {
+        'title' : 'PROFILE',
+    }
+    return render(request, template_name, context)
+
+#Progress Edit Biodata 
+def X(request, id):
+    template_name = 'back/account.html'
+    user = User.objects.get(username = username)
+    biodata = Biodata.objects.get(id=id)
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        alamat = request.POST.get('alamat')
+        telp = request.POST.get('telp')
+        try:
+            with transaction.atomic():
+                user.username = username
+                user.password = password
+                user.first_name = first_name
+                user.last_name = last_name
+                user.email = email
+                user.save()
+                
+                biodata.alamat = alamat
+                biodata.telp = telp
+                biodata.save()
+            #     User.objects.create(
+            #         username = username,
+            #         password = make_password(password),
+            #         first_name = first_name,
+            #         last_name = last_name,
+            #         email = email,
+            #     )
+            #     get_user = User.objects.get(username = username)
+            #     Biodata.objects.create(
+            #         user = get_user,
+            #         alamat = alamat,
+            #         telp = telp,
+            #     )
+            # return redirect('home')
+        except:
+            pass
+    context = {
+        'title' : 'REGISTER',
+        'user' : user,
+        'biodata' : biodata,
+    }
+    return render(request, template_name, context)

@@ -1,10 +1,20 @@
 {% extends 'front/page-front.html' %}
 {% block content %}
-
+{% load static %}
   <!-- END HEADER 7 w/ text and video -->
-  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+  <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
+    <div class="container py-6 mt-2">
+      <div class="row">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item text-dark opacity-5"><a href="{% url 'home' %}">Front</a></li>
+            <li class="breadcrumb-item text-dark active" aria-current="page">About</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
     <!-- Section with four info areas left & one card right with image and waves -->
-    <section class="py-7">
+    <section class="py-4">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">
@@ -12,31 +22,27 @@
               <div class="col-md-6">
                 <div class="info">
                   <i class="material-icons text-3xl text-gradient text-info mb-3">public</i>
-                  <h5>Fully integrated</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
+                  <h5><span class="badge badge-info badge-sm">{{ user }}</span></h5>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info">
                   <i class="material-icons text-3xl text-gradient text-info mb-3">payments</i>
-                  <h5>Payments functionality</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
+                  <h5>{{ user.first_name }} {{ user.last_name}}</h5>
                 </div>
               </div>
             </div>
             <div class="row justify-content-start mt-4">
               <div class="col-md-6">
                 <div class="info">
-                  <i class="material-icons text-3xl text-gradient text-info mb-3">apps</i>
-                  <h5>Prebuilt components</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
+                  <i class="material-icons text-3xl text-gradient text-info mb-3">3p</i>
+                  <h5><span class="badge badge-success badge-sm">{{ user.is_staff }}</span></h5>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info">
-                  <i class="material-icons text-3xl text-gradient text-info mb-3">3p</i>
-                  <h5>Improved platform</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
+                  <i class="material-icons text-3xl text-gradient text-info mb-3">email</i>
+                  <h5>{{ user.email }}</h5>
                 </div>
               </div>
             </div>
@@ -45,17 +51,16 @@
             <div class="card">
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <a class="d-block blur-shadow-image">
-                  <img src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="img-colored-shadow" class="img-fluid border-radius-lg">
+                  <img src="{% static 'images/profile.jpg' %}" alt="img-colored-shadow" class="img-fluid border-radius-lg">
                 </a>
               </div>
               <div class="card-body text-center">
                 <h5 class="font-weight-normal">
-                  <a href="javascript:;">Get insights on Search</a>
+                  <a href="javascript:;">{{ user }}</a>
                 </h5>
                 <p class="mb-0">
-                  Website visitors today demand a frictionless user expericence — especially when using search. Because of the hight standards.
+                  "Jika kamu menunggu dirimu sampai siap menghadapi pelajaran, maka seumur hidupmu hanya akan kamu habiskan untuk menunggu."
                 </p>
-                <button type="button" class="btn bg-gradient-info btn-sm mb-0 mt-3">Find out more</button>
               </div>
             </div>
           </div>
@@ -63,6 +68,27 @@
       </div>
     </section>
     <!-- END Section with four info areas left & one card right with image and waves -->
+    <div class="py-lg-5 py-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4 class="mb-1">Terima Kasih Atas Dukungan Anda!</h4>
+            <p class="lead mb-0">Semoga Web Berita Ini Bermanfaat.</p>
+          </div>
+          <div class="col-lg-6 mt-lg-0 mt-4 d-lg-flex align-items-center justify-content-end">
+            <a href="https://web.facebook.com/aditya.pranata.3679/" target="_blank" class="btn btn-facebook mb-lg-0 mb-2 me-2">
+              <i class="fab fa-facebook-square me-1"></i> Facebook
+            </a>
+            <a href="https://www.instagram.com/oreonzuu/" target="_blank" class="btn btn-instagram mb-lg-0 mb-2 me-2">
+              <i class="fab fa-instagram me-1"></i> Instagram
+            </a>
+            <a href="https://github.com/AdityaPranata1702/berita-seputar-game-dan-teknologi/" target="_blank" class="btn btn-github mb-lg-0 mb-2">
+              <i class="fab fa-github me-1"></i> Github
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- START Features w/ pattern background & stats & rocket -->
   </div>
 {% endblock %}
