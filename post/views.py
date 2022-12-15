@@ -117,19 +117,24 @@ def x(request):
 @login_required
 def profile(request):
     template_name = 'back/profile.html'
-    edit = User.objects.filter()
     if request.method == "POST":
+        username = request.POST.get('username')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
         try:
-            username = request.POST.get('username')
-            first_name = request.POST.get('first_name')
-            last_name = request.POST.get('last_name')
-            email = request.POST.get('email')
-        
-            get_user = User.objects.get(username = username)
-            get_user.first_name = first_name
-            get_user.last_name = last_name
-            get_user.email = email
-            get_user.save()
+            with transaction.atomic():
+                    get_user = User.objects.get(username = username)
+                    get_user.first_name = first_name
+                    get_user.last_name = last_name
+                    get_user.email = email
+                    get_user.save()
+            return redirect('home')
+            # get_user = User.objects.get(username = username)
+            # get_user.first_name = first_name
+            # get_user.last_name = last_name
+            # get_user.email = email
+            # get_user.save()
         except User.DoesNotExist:
             pass
     context = {
