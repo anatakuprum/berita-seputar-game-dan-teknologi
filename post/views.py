@@ -101,17 +101,9 @@ def edit(request, id):
     return render(request, template_name, context)
 
 @login_required
-def delete(id):
+def delete(request, id):
     Posting.objects.get(id=id).delete()
     return redirect(posts)
-
-@login_required
-def x(request):
-    template_name = 'back/profile.html'
-    context = {
-        'title' : 'PROFILE',
-    }
-    return render(request, template_name, context)
 
 #Progress Edit Biodata 
 @login_required
