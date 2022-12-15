@@ -61,7 +61,7 @@
                   {% if request.user.is_anonymous %}
                     <a href="{% url 'login' %}" class="btn btn-sm bg-dark text-white mb-0 me-1">Login</a>
                   {% else %}
-                    <a href="{% url 'dashboard' %}" class="btn btn-sm bg-dark text-white mb-0 me-1">Dashboard</a>
+                    <a href="{% url 'dashboard' %}" target="_blank" class="btn btn-sm bg-dark text-white mb-0 me-1">Dashboard</a>
                   {% endif %}
                 </li>
               </ul>
