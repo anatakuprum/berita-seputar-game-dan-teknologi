@@ -101,62 +101,35 @@ def edit(request, id):
     return render(request, template_name, context)
 
 @login_required
-def delete(id):
+def delete(request, id):
     Posting.objects.get(id=id).delete()
     return redirect(posts)
 
+#Progress Edit Biodata 
 @login_required
 def profile(request):
     template_name = 'back/profile.html'
-    context = {
-        'title' : 'PROFILE',
-    }
-    return render(request, template_name, context)
-
-#Progress Edit Biodata 
-def X(request, id):
-    template_name = 'back/account.html'
-    user = User.objects.get(username = username)
-    biodata = Biodata.objects.get(id=id)
     if request.method == "POST":
         username = request.POST.get('username')
-        password = request.POST.get('password')
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         email = request.POST.get('email')
-        alamat = request.POST.get('alamat')
-        telp = request.POST.get('telp')
         try:
             with transaction.atomic():
-                user.username = username
-                user.password = password
-                user.first_name = first_name
-                user.last_name = last_name
-                user.email = email
-                user.save()
-                
-                biodata.alamat = alamat
-                biodata.telp = telp
-                biodata.save()
-            #     User.objects.create(
-            #         username = username,
-            #         password = make_password(password),
-            #         first_name = first_name,
-            #         last_name = last_name,
-            #         email = email,
-            #     )
-            #     get_user = User.objects.get(username = username)
-            #     Biodata.objects.create(
-            #         user = get_user,
-            #         alamat = alamat,
-            #         telp = telp,
-            #     )
-            # return redirect('home')
-        except:
+                    get_user = User.objects.get(username = username)
+                    get_user.first_name = first_name
+                    get_user.last_name = last_name
+                    get_user.email = email
+                    get_user.save()
+            return redirect('home')
+            # get_user = User.objects.get(username = username)
+            # get_user.first_name = first_name
+            # get_user.last_name = last_name
+            # get_user.email = email
+            # get_user.save()
+        except User.DoesNotExist:
             pass
     context = {
-        'title' : 'REGISTER',
-        'user' : user,
-        'biodata' : biodata,
+        'title' : 'EDIT REGISTER',
     }
     return render(request, template_name, context)

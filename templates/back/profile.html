@@ -16,13 +16,13 @@
               <li class="nav-item pt-2">
                 <a class="nav-link text-dark d-flex" data-scroll="" href="#basic-info">
                   <i class="material-icons text-lg me-2">receipt_long</i>
-                  <span class="text-sm">Basic Info</span>
+                  <span class="text-sm">Edit Register</span>
                 </a>
               </li>
               <li class="nav-item pt-2">
                 <a class="nav-link text-dark d-flex" data-scroll="" href="#password">
                   <i class="material-icons text-lg me-2">lock</i>
-                  <span class="text-sm">Change Password</span>
+                  <span class="text-sm">Edit Biodata</span>
                 </a>
               </li>
               <li class="nav-item pt-2">
@@ -60,7 +60,7 @@
             {% csrf_token %}
             <div class="card mt-4" id="basic-info">
                 <div class="card-header">
-                <h5>Basic Info</h5>
+                <h5>Edit Register</h5>
                 </div>
                 <div class="card-body pt-0">
                 <div class="row mt-4">
@@ -85,47 +85,29 @@
                     </div>
                     </div>
                     <div class="col-6">
-                    <div class="input-group input-group-static">
-                        <label>Telp</label>
-                        <input type="text" class="form-control" value="{{ user.telp }}" placeholder="+62">
-                    </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-6">
-                    <div class="input-group input-group-static">
-                        <label>Alamat</label>
-                        <textarea name="alamat" class="form-control" id="message" rows="4">{{ user.alamat }}</textarea>
-                    </div>
-                    </div>
-                    <div class="col-6">
-                    <div class="col-md-12 mt-5">
-                        <button type="submit" class="btn bg-gradient-dark w-100">Register</button>
+                    <div class="col-md-12 mt-4">
+                        <button type="submit" class="btn bg-gradient-dark w-100">Edit Register</button>
                     </div>
                     </div>
                 </div>
                 </div>
             </div>
-         </form>
+          </form>
           <!-- Card Change Password -->
           <div class="card mt-4" id="password">
             <div class="card-header">
-              <h5>Change Password</h5>
+              <h5>Edit Biodata</h5>
             </div>
             <div class="card-body pt-0">
               <div class="input-group input-group-outline">
-                <label class="form-label">Current password</label>
-                <input type="password" class="form-control">
+                <label class="form-label">Alamat</label>
+                <input type="text" class="form-control">
               </div>
               <div class="input-group input-group-outline my-4">
-                <label class="form-label">New password</label>
-                <input type="password" class="form-control">
+                <label class="form-label">Telp</label>
+                <input type="text" class="form-control">
               </div>
-              <div class="input-group input-group-outline">
-                <label class="form-label">Confirm New password</label>
-                <input type="password" class="form-control">
-              </div>
-              <button class="btn bg-gradient-dark btn-sm float-end mt-6 mb-0">Update password</button>
+              <button class="btn bg-gradient-dark btn-sm float-end mt-2 mb-0">Edit Biodata</button>
             </div>
           </div>
           <!-- Card Delete Account -->
@@ -137,7 +119,6 @@
                   <p class="text-sm mb-0">Once you delete your account, there is no going back. Please be certain.</p>
                 </div>
                 <div class="w-50 text-end">
-                  <button class="btn btn-outline-secondary mb-3 mb-md-0 ms-auto" type="button" name="button">Deactivate</button>
                   <button class="btn bg-gradient-danger mb-0 ms-2" type="button" name="button">Delete Account</button>
                 </div>
               </div>
