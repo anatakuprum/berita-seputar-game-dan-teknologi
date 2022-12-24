@@ -33,3 +33,14 @@ class Posting(models.Model):
     
     class Meta:
         verbose_name_plural = "Posting"
+
+class Content(models.Model):
+    title = models.CharField(max_length=1000)
+    body = models.TextField()
+    image = models.ImageField()
+    date = models.CharField(max_length=1000)
+    link = models.CharField(max_length=1000)
+    
+    def __str__(self):
+        return "{} - {}".format(self.title, self.date)
+    

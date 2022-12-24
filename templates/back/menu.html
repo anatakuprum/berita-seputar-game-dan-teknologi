@@ -37,6 +37,12 @@
         <span class="nav-link-text ms-2 ps-1">LIST POSTING</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link text-whit" href="{% url 'content' %}">
+        <i class="material-icons-round {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">receipt_long</i>
+        <span class="nav-link-text ms-2 ps-1">LIST CONTENT</span>
+      </a>
+    </li>
     {% if request.session.is_admin == 'admin' %}
     <li class="nav-item">
       <a class="nav-link text-whit" href="{% url 'users' %}">

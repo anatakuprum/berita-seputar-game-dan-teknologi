@@ -7,6 +7,7 @@ from django.db import transaction
 from .forms import *
 from .models import *
 from user.models import *
+import requests
 
 # Create your views here.
 def is_admin(user):
@@ -133,3 +134,35 @@ def profile(request):
         'title' : 'EDIT REGISTER',
     }
     return render(request, template_name, context)
+
+@login_required
+def content(request):
+    template_name = 'back/content.html'
+    content = Content.objects.all()
+    context = {
+        'title' : 'LIST CONTENT',
+        'content' : content,
+    }
+    return render(request, template_name, context)
+
+@login_required
+def sinkron(request):
+        url = "http://berita-indo-api.vercel.app/v1/tribun-news/"
+        data = requests.get(url).json()
+        for x in data['data']:
+            check = Content.objects.filter(title=x['title'])
+            if check:
+                print('Data Sudah Ada')
+                c = check.first()
+                c.title=x['title']
+                c.save()
+            else: 
+                #jika belum ada maka tulis baru kedatabase
+                b = Content.objects.create(
+                    title = x['title'],
+                    body = x['contentSnippet'],
+                    image = x['image'],
+                    date = x['isoDate'],
+                    link = x['link'],
+                )
+        return redirect(content)
