@@ -11,28 +11,29 @@ import requests
 
 def home(request):
     template_name = 'front/home.html'
-    url = "https://berita-indo-api.vercel.app/v1/tribun-news/"
-    content = requests.get(url).json()
+    content = Content.objects.all()
+    # url = "http://berita-indo-api.vercel.app/v1/tribun-news/"
+    # content = requests.get(url).json()
     
-    x = content['data']
-    image = []
-    date = []
-    title = []
-    body = []
-    link = []
+    # x = content['data']
+    # image = []
+    # date = []
+    # title = []
+    # body = []
+    # link = []
 
-    for o in range(len(x)):
-        c = x[o]
-        image.append(c['image'])
-        date.append(c['isoDate'])
-        title.append(c['title'])
-        body.append(c['contentSnippet'])
-        link.append(c['link'])
+    # for o in range(len(x)):
+    #     c = x[o]
+    #     image.append(c['image'])
+    #     date.append(c['isoDate'])
+    #     title.append(c['title'])
+    #     body.append(c['contentSnippet'])
+    #     link.append(c['link'])
 
-    mycontent = zip(image, date, title, body, link,)
+    # mycontent = zip(image, date, title, body, link,)
     context = {
         'title' : 'HOME',
-        'mycontent' : mycontent
+        'content' : content
     }
     return render(request, template_name, context)
 

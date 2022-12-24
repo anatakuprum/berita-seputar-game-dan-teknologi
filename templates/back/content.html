@@ -1,0 +1,69 @@
+{% extends 'back/page-back.html' %}
+{% block content %}
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header pb-0">
+          <div class="d-lg-flex">
+            <div>
+              <h5 class="mb-1">{{ user.first_name }} {{ user.last_name }}</h5>
+              <p class="text-sm mb-0">
+                {{ user.email }}
+              </p>
+            </div>
+            <div class="ms-auto my-auto mt-lg-0 mt-4">
+              <div class="ms-auto my-auto">
+                <a href="{% url 'sinkron' %}" class="btn bg-gradient-dark btn-sm mb-0">Sinkron</a>
+                <button class="btn btn-outline-dark btn-sm export mb-0 mt-sm-0 mt-1" data-type="csv" type="button" name="button">Export</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-0 mt-n4">
+          <div class="table-responsive">
+            <table class="table table-flush" id="products-list">
+              <thead class="thead-light">
+                <tr>
+                  <th>No</th>
+                  <th>Title</th>
+                  <th>Judul</th>
+                  <th>Image</th>
+                  <th>Link</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for c in content %}
+                <tr>
+                  <td class="text-sm">{{ forloop.counter }}</td>
+                  <td class="text-sm">{{ c.title|truncatechars:20 }}</td>
+                  <td class="text-sm">{{ c.body|truncatechars:50 }}</td>
+                  <td class="text-sm">{{ c.image|truncatechars:20 }}</td>
+                  <td class="text-sm">{{ c.link|truncatechars:20 }}</td>
+                  <td>
+                    <span class="badge badge-success badge-sm">{{ c.date }}</span>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Nama</th>
+                  <th>Title</th>
+                  <th>Judul</th>
+                  <th>Image</th>
+                  <th>Link</th>
+                  <th>Date</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

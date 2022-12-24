@@ -106,22 +106,22 @@
                 </div>
               </div>
             <div class="row">
-              {% for image,date,title,body,link in mycontent %}
+              {% for c in content %}
               <div class="col-lg-3 col-sm-6">
                 <div class="card card-plain card-blog mt-4">
                   <div class="card-header p-0 position-relative z-index-2">
                     <a class="d-block blur-shadow-image">
-                      <img src="{{ image }}" alt="img-blur-shadow" class="img-fluid border-radius-lg">
+                      <img src="{{ c.image }}" alt="img-blur-shadow" class="img-fluid border-radius-lg">
                     </a>
                   </div>
                   <div class="card-body px-0">
-                    <p class="text-uppercase font-weight-bold text-info text-xs">{{ date }}</p>
+                    <p class="text-uppercase font-weight-bold text-info text-xs">{{ c.date }}</p>
                     <h5>
-                      <a href="{{ link }}" class="text-dark font-weight-bold" target="_blank">{{ title }}</a>
+                      <a href="{{ c.link }}" class="text-dark font-weight-bold" target="_blank">{{ c.title }}</a>
                     </h5>
                     <p>
-                      {{ body|truncatechars:150 }}
-                      <a href="{{ link }}" class="text-primary icon-move-right" target="_blank"> Read More</a>
+                      {{ c.body|truncatechars:150 }}
+                      <a href="{{ c.link }}" class="text-primary icon-move-right" target="_blank"> Read More</a>
                     </p>
                   </div>
                 </div>
