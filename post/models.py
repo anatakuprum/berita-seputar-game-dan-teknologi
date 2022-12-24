@@ -44,5 +44,3 @@ class Content(models.Model):
     def __str__(self):
         return "{} - {}".format(self.title, self.date)
     
-    class Meta:
-        verbose_name_plural = "Posting"
